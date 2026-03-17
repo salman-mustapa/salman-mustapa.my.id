@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Mustapa | Networking & Web Development</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio Salman Mustapa - Networking & Web Development. Spesialis dalam Laravel, Mikrotik, dan Admin Server.">
+    <meta name="keywords"
+        content="Salman Mustapa, Portfolio, Networking, Web Development, Laravel, Mikrotik, Indonesia">
+    <meta name="author" content="Salman Mustapa">
+
+    <link rel="icon" href="assets/icon.png">
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Salman Mustapa Portfolio">
+    <meta property="og:description" content="Networking & Web Development Professional.">
+    <meta property="og:image" content="assets/icon.png">
+    <meta property="og:url" content="https://salmanmustapa.my.id">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            zinc: '#18181b',
+                            border: '#27272a',
+                            accent: '#3f3f46'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'md': '4px',
+                        'lg': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/main.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Google Analytics Placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Google AdSense Placeholder -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+        crossorigin="anonymous"></script>
+</head>
+
+<body
+    class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-300">
+
+    <!-- Desktop Navbar -->
+    <nav
+        class="hidden md:flex fixed top-0 w-full z-50 border-b border-zinc-200 dark:border-white/5 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md px-8 py-4 items-center justify-between transition-colors duration-300">
+        <a href="#" class="flex items-center gap-3">
+            <div
+                class="w-8 h-8 rounded-full overflow-hidden border border-emerald-500/20 bg-emerald-500/5 transition-transform hover:rotate-12 duration-500">
+                <img src="assets/icon.png" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <span class="text-xl font-bold tracking-tight uppercase">Salman Mustapa<span
+                    class="text-emerald-500">.</span></span>
+        </a>
+        <div class="flex items-center gap-1">
+            <a href="#biografi"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Profil</a>
+            <a href="#keterampilan"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Skill</a>
+            <a href="#perjalanan"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Karir</a>
+            <a href="#projek"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Projek</a>
+            <a href="#github"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">GitHub</a>
+            <a href="#sosmed"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Sosmed</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="theme-toggle" class="p-2 rounded-md hover:bg-zinc-200 dark:hover:bg-white/5 transition-all"
+                title="Toggle Theme">
+                <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-500"></i>
+            </button>
+            <a href="mailto:id.salmanmustapa@gmail.com"
+                class="border border-zinc-200 dark:border-white/10 px-4 py-2 rounded-md hover:bg-zinc-200 dark:hover:bg-white/5 transition-all text-sm">Let's
+                Talk</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navbar -->
+    <nav
+        class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-50 border border-zinc-200 dark:border-white/10 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-xl px-4 py-4 rounded-2xl flex justify-between items-center shadow-2xl transition-colors duration-300">
+        <a href="#biografi" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="Profil"><i data-lucide="user" class="w-5 h-5"></i></a>
+        <a href="#keterampilan" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="Skill"><i data-lucide="layers" class="w-5 h-5"></i></a>
+        <a href="#perjalanan" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="Karir"><i data-lucide="briefcase" class="w-5 h-5"></i></a>
+        <a href="#projek" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="Projek"><i data-lucide="grid" class="w-5 h-5"></i></a>
+        <a href="#github" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <a href="#sosmed" class="p-2 hover:bg-zinc-200 dark:hover:bg-white/5 rounded-lg transition-colors"
+            title="Sosmed"><i data-lucide="share-2" class="w-5 h-5"></i></a>
+        <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-zinc-200 dark:hover:bg-white/5 transition-all"
+            title="Toggle Theme">
+            <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+            <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-500"></i>
+        </button>
+    </nav>
+
+    <main class="pt-24 md:pt-32 pb-40 px-6 md:px-20 max-w-7xl mx-auto space-y-32">
+        <!-- Hero Section -->
+        <section id="hero" class="space-y-6">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/50 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Active in Networking & Web Dev
+            </div>
+            <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-tight max-w-5xl">
+                FULL STACK DEVELOPER <br>
+                <span class="text-emerald-500">& SECURITY ENGINEER</span>.
+            </h1>
+            <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                Berpengalmaan dalam pengembangan sistem web modern yang aman dan aplikasi mobile yang inovatif.
+                Memadukan keahlian <strong>Full Stack Development</strong> dengan standar keamanan siber untuk solusi
+                digital yang tangguh.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#projek"
+                    class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 px-6 py-3 rounded-md font-medium hover:bg-zinc-800 dark:hover:bg-zinc-300 transition-colors">Lihat
+                    Projek</a>
+                <a href="mailto:id.salmanmustapa@gmail.com"
+                    class="border border-zinc-200 dark:border-white/10 px-6 py-3 rounded-md font-medium hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors">Kontak
+                    Saya</a>
+            </div>
+        </section>
+
+        <!-- Profile / Biography Section -->
+        <section id="biografi" class="grid md:grid-cols-3 gap-12 items-start">
+            <div
+                class="md:col-span-1 border border-zinc-200 dark:border-white/10 p-2 rounded-lg bg-white dark:bg-zinc-900/30 overflow-hidden group">
+                <div class="avatar-container relative">
+                    <img src="assets/icon.png" alt="Salman Mustapa"
+                        class="w-full aspect-[3/4] object-cover rounded-md transition-all duration-700 breathing-avatar">
+                    <div
+                        class="absolute inset-0 rounded-md bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2 space-y-6">
+                <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Profil Profesional</h2>
+                <h3 class="text-3xl font-bold tracking-tight">Menghadirkan Solusi Digital Berbasis Keamanan dan
+                    Efisiensi.</h3>
+                <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
+                    Sebagai lulusan Sistem Informasi dengan fokus pada <strong>Full Stack Development & Network
+                        Engineer</strong>, saya berpengalaman dalam membangun infrastruktur TI yang aman bagi instansi
+                    pemerintah. Keahlian saya mencakup administrasi server Linux, koding Backend (Laravel), dan kini
+                    aktif mendalami <strong>Android Development</strong> serta <strong>Cyber Security</strong> untuk
+                    memastikan setiap aplikasi yang dibangun memiliki integritas data yang tinggi.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+                    <div class="space-y-1">
+                        <p class="text-sm text-zinc-500">Lokasi</p>
+                        <p class="text-sm font-medium">Gorontalo, Indonesia</p>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-sm text-zinc-500">Email</p>
+                        <a href="mailto:id.salmanmustapa@gmail.com"
+                            class="text-sm font-medium">id.salmanmustapa@gmail.com</a>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-sm text-zinc-500">Telepon</p>
+                        <p class="text-sm font-medium">+62 821 5448 8769</p>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-sm text-zinc-500">Website</p>
+                        <a href="https://salmanmustapa.my.id" class="text-sm font-medium">salmanmustapa.my.id</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="keterampilan" class="space-y-12">
+            <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Keterampilan & Sertifikasi</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold">Technical Skills</h3>
+                    <div id="skills-container" class="flex flex-wrap gap-2">
+                        <!-- Skills will be injected by JS -->
+                        <div class="w-full py-4 animate-pulse bg-zinc-100 dark:bg-zinc-900 rounded-md h-12"></div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold">Sertifikasi</h3>
+                    <div id="certifications-container" class="space-y-6">
+                        <!-- Certifications will be injected by JS -->
+                        <div class="w-full py-4 animate-pulse bg-zinc-100 dark:bg-zinc-900 rounded-md h-24"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career & Education Section -->
+        <section id="perjalanan" class="space-y-12">
+            <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Pengalaman Kerja & Pendidikan</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Career -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="briefcase" class="w-5 h-5 text-zinc-500"></i>
+                        <h3 class="text-xl font-bold">Pengalaman Kerja</h3>
+                    </div>
+                    <div id="experience-container"
+                        class="relative pl-8 space-y-12 border-l border-zinc-200 dark:border-white/5">
+                        <!-- Experience will be injected by JS -->
+                        <div class="animate-pulse bg-zinc-100 dark:bg-zinc-900 h-32 rounded-md"></div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-zinc-500"></i>
+                        <h3 class="text-xl font-bold">Pendidikan</h3>
+                    </div>
+                    <div id="education-container"
+                        class="relative pl-8 space-y-12 border-l border-zinc-200 dark:border-white/5">
+                        <!-- Education will be injected by JS -->
+                        <div class="animate-pulse bg-zinc-100 dark:bg-zinc-900 h-32 rounded-md"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Slot 1 -->
+        <div
+            class="w-full border border-zinc-200 dark:border-white/5 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-zinc-500 dark:text-zinc-600 text-xs tracking-widest rounded-md py-8 italic">
+            [ADSENSE PLACEHOLDER]
+        </div>
+
+        <!-- Project Showcase Section -->
+        <section id="projek" class="space-y-12">
+            <div class="flex justify-between items-end">
+                <div class="space-y-4">
+                    <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Proyek Terpilih</h2>
+                    <h3 class="text-3xl font-bold">Implementasi Infrastruktur & Aplikasi</h3>
+                </div>
+            </div>
+
+            <!-- Project Tabs -->
+            <div class="grid grid-cols-2 md:flex md:flex-wrap gap-3 mb-12">
+                <button data-category="all"
+                    class="project-tab active col-span-1 px-6 py-3 text-[10px] font-bold uppercase tracking-widest border border-emerald-500/20 bg-emerald-500/10 text-emerald-500 rounded-[10px] transition-all shadow-sm">All
+                    Projects</button>
+                <button data-category="network"
+                    class="project-tab col-span-1 px-6 py-3 text-[10px] font-bold uppercase tracking-widest border border-zinc-200 dark:border-white/5 text-zinc-500 hover:text-emerald-500 hover:border-emerald-500/20 rounded-[10px] transition-all">Networking</button>
+                <button data-category="programming"
+                    class="project-tab col-span-1 px-6 py-3 text-[10px] font-bold uppercase tracking-widest border border-zinc-200 dark:border-white/5 text-zinc-500 hover:text-emerald-500 hover:border-emerald-500/20 rounded-[10px] transition-all">Programming</button>
+                <button data-category="android"
+                    class="project-tab col-span-1 px-6 py-3 text-[10px] font-bold uppercase tracking-widest border border-zinc-200 dark:border-white/5 text-zinc-500 hover:text-emerald-500 hover:border-emerald-500/20 rounded-[10px] transition-all">Android</button>
+                <button data-category="security"
+                    class="project-tab col-span-2 md:col-span-1 px-6 py-3 text-[10px] font-bold uppercase tracking-widest border border-zinc-200 dark:border-white/5 text-zinc-500 hover:text-emerald-500 hover:border-emerald-500/20 rounded-[10px] transition-all">Security</button>
+            </div>
+
+            <div id="project-grid" class="grid md:grid-cols-3 gap-6">
+            </div>
+            <div class="text-center pt-8">
+                <button id="load-more-projects"
+                    class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-6 py-2 rounded-md text-sm hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors">Lihat
+                    Projek Lainnya</button>
+            </div>
+        </section>
+
+        <!-- GitHub Section -->
+        <section id="github" class="space-y-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div class="space-y-4">
+                    <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Aktivitas Coding</h2>
+                    <h3 class="text-3xl font-bold">Kontribusi GitHub & Statistik</h3>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="text-center px-6 py-3 border border-zinc-200 dark:border-white/5 rounded-[12px] bg-white dark:bg-zinc-900/30">
+                        <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Repos</p>
+                        <p id="github-repos" class="text-xl font-bold text-emerald-500">0</p>
+                    </div>
+                    <div
+                        class="text-center px-6 py-3 border border-zinc-200 dark:border-white/5 rounded-[12px] bg-white dark:bg-zinc-900/30">
+                        <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Stars</p>
+                        <p id="github-stars" class="text-xl font-bold text-emerald-500">0</p>
+                    </div>
+                    <div
+                        class="text-center px-6 py-3 border border-zinc-200 dark:border-white/5 rounded-[12px] bg-white dark:bg-zinc-900/30">
+                        <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Followers</p>
+                        <p id="github-followers" class="text-xl font-bold text-emerald-500">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contribution Graph -->
+            <div class="card-border p-6 md:p-8 rounded-[12px] overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <p class="text-sm font-medium text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
+                            <i data-lucide="activity" class="w-4 h-4 text-emerald-500"></i>
+                            <span id="github-total-contributions">0</span> kontribusi
+                        </p>
+                        <select id="github-year-selector"
+                            class="bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-white/10 rounded-[6px] text-[10px] font-bold uppercase tracking-wider px-2 py-1 outline-none text-zinc-600 dark:text-zinc-400 cursor-pointer hover:border-emerald-500/30 transition-colors">
+                            <option value="current">Last Year</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2 text-[10px] text-zinc-500 uppercase tracking-widest font-bold">
+                        <span>Less</span>
+                        <div class="w-3 h-3 rounded-[2px] level-0"></div>
+                        <div class="w-3 h-3 rounded-[2px] level-1"></div>
+                        <div class="w-3 h-3 rounded-[2px] level-2"></div>
+                        <div class="w-3 h-3 rounded-[2px] level-3"></div>
+                        <div class="w-3 h-3 rounded-[2px] level-4"></div>
+                        <span>More</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto pb-4">
+                    <div id="github-contribution-graph" class="contribution-grid min-w-[800px]">
+                        <!-- Days will be injected by JS -->
+                    </div>
+                </div>
+
+                <!-- GitHub Activity Timeline moved inside -->
+                <div class="space-y-8 pt-8 mt-8 border-t border-zinc-200 dark:border-white/5">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="history" class="w-5 h-5 text-emerald-500"></i>
+                        <h4 class="text-lg font-bold">Aktivitas Kontribusi Terkini</h4>
+                    </div>
+
+                    <div id="github-activity-timeline" class="space-y-4">
+                        <!-- Activity data will be injected here -->
+                        <div class="pl-10 py-4 italic text-zinc-500 text-sm animate-pulse">Memuat aktivitas...</div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button id="load-more-activity" class="load-more-btn hidden">
+                            Show more activity
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-[10px] text-zinc-500 mt-4 italic">Catatan: Data di atas disinkronkan secara berkala
+                    dengan GitHub API.</p>
+            </div>
+
+            <!-- GitHub Projects/Repos Highlight -->
+            <div id="github-repos-grid" class="grid md:grid-cols-3 gap-6">
+                <!-- Repo cards will be injected by JS -->
+                <div class="col-span-full py-12 animate-pulse text-center">
+                    <div class="w-full h-32 bg-zinc-100 dark:bg-zinc-900 rounded-[12px] mb-4"></div>
+                </div>
+            </div>
+
+            <div class="text-center pt-8 mb-12">
+                <button id="load-more-github"
+                    class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-8 py-3 rounded-md text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors hidden">
+                    Load More Repos <i data-lucide="refresh-cw" class="inline w-4 h-4 ml-1"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Social Media / Dynamic Feed Section -->
+        <section id="sosmed" class="space-y-12">
+            <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Live Updates</h2>
+            <div class="grid md:grid-cols-4 gap-6" id="social-feed">
+                <!-- Social cards will be injected by JS -->
+            </div>
+            <div class="text-center pt-8">
+                <button id="load-more-social"
+                    class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-6 py-2 rounded-md text-sm hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors">Load
+                    More Posts</button>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact"
+            class="card-border p-12 rounded-[10px] bg-zinc-100 dark:bg-zinc-900/10 text-center space-y-8">
+            <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Kontak</h2>
+            <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Mari Hubungi Saya Secara Langsung.</h3>
+            <p class="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
+                Tersedia untuk proyek networking, setup server, atau pengembangan aplikasi web.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="mailto:id.salmanmustapa@gmail.com"
+                    class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 px-8 py-4 rounded-md font-bold hover:bg-zinc-800 dark:hover:bg-zinc-300 transition-colors">
+                    Send Email
+                </a>
+                <a href="https://linkedin.com/in/salman-mustapa" target="_blank"
+                    class="border border-zinc-200 dark:border-white/10 px-8 py-4 rounded-md font-bold hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors">
+                    LinkedIn Profile
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pb-24 pt-12 px-6 border-t border-zinc-200 dark:border-white/5 text-center space-y-4">
+        <p class="text-xs text-zinc-600 uppercase tracking-widest font-bold">Salman Mustapa &copy; 2026</p>
+        <div class="flex gap-6 justify-center text-zinc-600">
+            <a href="https://instagram.com/salman.mustapa" target="_blank"
+                class="hover:text-emerald-500 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="hover:text-emerald-500 transition-colors"><i data-lucide="twitter"
+                    class="w-4 h-4"></i></a>
+            <a href="https://linkedin.com/in/salman-mustapa" target="_blank"
+                class="hover:text-emerald-500 transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/6282154488769?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama."
+        target="_blank" class="fixed bottom-28 right-6 md:bottom-8 md:right-8 z-50 group transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <span
+                class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-4 py-2 rounded-[10px] text-[10px] font-bold uppercase tracking-widest text-emerald-500 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all origin-right pointer-events-none">
+                Jalin Kerja Sama
+            </span>
+            <div
+                class="w-14 h-14 bg-emerald-500 text-white rounded-[10px] flex items-center justify-center shadow-2xl hover:bg-emerald-600 transition-all hover:scale-110 active:scale-95">
+                <i data-lucide="message-circle" class="w-7 h-7"></i>
+            </div>
+        </div>
+    </a>
+
+    <!-- Custom JS -->
+    <script src="assets/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

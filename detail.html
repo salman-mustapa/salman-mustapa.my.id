@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - Salman | Full Stack Developer & Security Engineer</title>
+    <!-- SEO & Meta -->
+    <meta name="description"
+        content="Detail proyek portofolio Salman Mustapa. Full Stack Development, Security Engineering, dan Android.">
+    <meta name="keywords"
+        content="Portfolio, Project Detail, Salman Mustapa, Networking, Security, Android, Full Stack">
+    <meta name="author" content="Salman Mustapa">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Project Detail - Salman Mustapa">
+    <meta property="og:description" content="Detail teknis dan dokumentasi proyek portofolio.">
+    <meta property="og:image" content="assets/og-image.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { 'brand-border': '#1e293b' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card-border {
+            border: 1px solid rgba(228, 228, 231, 0.4);
+        }
+
+        .dark .card-border {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gallery Styles */
+        .gallery-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-item {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+
+    <!-- Simple Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-200 dark:border-white/5 bg-white/70 dark:bg-zinc-950/70">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Kembali</span>
+            </a>
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-zinc-400">Project <span
+                    class="text-emerald-500">Details</span></div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-24">
+        <!-- Project Hero -->
+        <div class="space-y-8 mb-16">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span
+                        class="category-badge px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded-[6px] border border-emerald-500/20">Programming</span>
+                    <span class="px-2 py-1 rounded-[6px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-widest">2024</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-none uppercase">Sistem Pengelolaan
+                    Sarana Lab</h1>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">Aplikasi pengelolaan
+                    inventaris dan monitoring sarana laboratorium kampus Gorontalo yang membantu administrasi HAKI.</p>
+            </div>
+
+            <!-- Swipeable Gallery -->
+            <div class="relative group">
+                <div id="gallery" class="gallery-container flex overflow-x-auto no-scrollbar gap-4 pb-4">
+                    <!-- Slide 1 -->
+                    <div
+                        class="gallery-item w-full aspect-video rounded-[10px] overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200"
+                            onerror="this.src='assets/not-found-image.svg'" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div
+                        class="gallery-item w-full aspect-video rounded-[10px] overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200"
+                            onerror="this.src='assets/not-found-image.svg'" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div
+                        class="gallery-item w-full aspect-video rounded-[10px] overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
+                            onerror="this.src='assets/not-found-image.svg'" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Gallery Controls -->
+                <div
+                    class="absolute inset-y-0 left-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button id="prevBtn"
+                        class="p-3 rounded-[10px] bg-white/20 dark:bg-black/20 glass-nav border border-white/10 text-white hover:bg-white/40 transition-all shadow-xl">
+                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div
+                    class="absolute inset-y-0 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button id="nextBtn"
+                        class="p-3 rounded-[10px] bg-white/20 dark:bg-black/20 glass-nav border border-white/10 text-white hover:bg-white/40 transition-all shadow-xl">
+                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            <!-- Details Sidebar -->
+            <div class="lg:col-span-1 space-y-8">
+                <div
+                    class="p-6 rounded-[10px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 space-y-6">
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-2">Role</h4>
+                        <p class="text-sm font-medium">Backend Developer</p>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="text-[10px] px-2 py-1 bg-zinc-100 dark:bg-white/5 rounded-[4px] border border-zinc-200 dark:border-white/5">PHP
+                                Laravel</span>
+                            <span
+                                class="text-[10px] px-2 py-1 bg-zinc-100 dark:bg-white/5 rounded-[4px] border border-zinc-200 dark:border-white/5">MySQL</span>
+                            <span
+                                class="text-[10px] px-2 py-1 bg-zinc-100 dark:bg-white/5 rounded-[4px] border border-zinc-200 dark:border-white/5">jQuery</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-2">Links</h4>
+                        <div class="flex flex-col gap-2">
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm font-bold text-emerald-500 hover:underline">
+                                <i data-lucide="external-link" class="w-4 h-4"></i> LIVE PREVIEW
+                            </a>
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm text-zinc-500 hover:text-emerald-500 transition-colors uppercase font-medium">
+                                <i data-lucide="github" class="w-4 h-4"></i> REPOSITORY
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-12 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <div class="prose dark:prose-invert max-w-none">
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-tight">
+                        Ringkasan Proyek</h3>
+                    <p class="mb-6">Proyek ini dikembangkan untuk mendigitalisasi proses inventarisasi di laboratorium
+                        Sistem Informasi. Fokus utama adalah pada kemudahan pelacakan aset fisik dan laporan kerusakan
+                        secara real-time.</p>
+
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-tight">Fitur
+                        Utama</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-none pl-0 mb-12">
+                        <li
+                            class="flex items-start gap-3 p-4 rounded-[10px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-0.5"></i>
+                            <div>
+                                <span class="block font-bold text-zinc-900 dark:text-zinc-100 text-sm">Multi-level
+                                    Auth</span>
+                                <span class="text-xs">Admin, Teknisi, & Mahasiswa</span>
+                            </div>
+                        </li>
+                        <li
+                            class="flex items-start gap-3 p-4 rounded-[10px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
+                            <i data-lucide="qr-code" class="w-5 h-5 text-emerald-500 mt-0.5"></i>
+                            <div>
+                                <span class="block font-bold text-zinc-900 dark:text-zinc-100 text-sm">QR Code
+                                    System</span>
+                                <span class="text-xs">Identifikasi alat lab instan</span>
+                            </div>
+                        </li>
+                        <li
+                            class="flex items-start gap-3 p-4 rounded-[10px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-500 mt-0.5"></i>
+                            <div>
+                                <span class="block font-bold text-zinc-900 dark:text-zinc-100 text-sm">Analytic
+                                    Dashboard</span>
+                                <span class="text-xs">Monitoring real-time</span>
+                            </div>
+                        </li>
+                        <li
+                            class="flex items-start gap-3 p-4 rounded-[10px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
+                            <i data-lucide="bell" class="w-5 h-5 text-emerald-500 mt-0.5"></i>
+                            <div>
+                                <span
+                                    class="block font-bold text-zinc-900 dark:text-zinc-100 text-sm">E-Reporting</span>
+                                <span class="text-xs">Notifikasi kerusakan otomatis</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-tight">
+                        Tantangan & Solusi</h3>
+                    <p class="border-l-4 border-emerald-500/50 pl-6 italic mb-12">
+                        Sinkronisasi data antar modul laporan adalah tantangan terbesar. Solusinya adalah dengan
+                        impelementasi caching strategis dan optimasi query database untuk mempercepat pembacaan data
+                        dashboard yang berat.
+                    </p>
+
+                    <!-- Trust Building Sections -->
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 py-12 border-t border-zinc-200 dark:border-white/5">
+                        <div class="space-y-4">
+                            <h3
+                                class="text-xl font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight flex items-center gap-2">
+                                <i data-lucide="milestone" class="w-5 h-5 text-emerald-500"></i> Alur Kerja (Work
+                                Process)
+                            </h3>
+                            <div class="space-y-4 pt-4">
+                                <div class="flex gap-4">
+                                    <div class="flex flex-col items-center">
+                                        <div
+                                            class="w-6 h-6 rounded-[10px] border-2 border-emerald-500 bg-emerald-500/10 flex items-center justify-center text-[10px] font-bold">
+                                            1</div>
+                                        <div class="w-px h-full bg-emerald-500/20 my-1"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-zinc-800 dark:text-zinc-200 uppercase">Analysis
+                                        </p>
+                                        <p class="text-xs">Observasi kebutuhan inventarisasi lab secara langsung.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="flex flex-col items-center">
+                                        <div
+                                            class="w-6 h-6 rounded-[10px] border-2 border-emerald-500 bg-emerald-500/10 flex items-center justify-center text-[10px] font-bold">
+                                            2</div>
+                                        <div class="w-px h-full bg-emerald-500/20 my-1"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-zinc-800 dark:text-zinc-200 uppercase">
+                                            Prototyping</p>
+                                        <p class="text-xs">Perancangan UI/UX fokus pada dashboard teknisi.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="flex flex-col items-center">
+                                        <div
+                                            class="w-6 h-6 rounded-[10px] border-2 border-emerald-500 bg-emerald-500/10 flex items-center justify-center text-[10px] font-bold">
+                                            3</div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-zinc-800 dark:text-zinc-200 uppercase">
+                                            Development</p>
+                                        <p class="text-xs">Implementasi Backend & Integration testing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-[10px] bg-emerald-500/5 border border-emerald-500/20 space-y-4">
+                            <h3
+                                class="text-xl font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight flex items-center gap-2">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 text-emerald-500"></i> Lessons Learned
+                            </h3>
+                            <p class="text-sm italic text-zinc-600 dark:text-zinc-400">
+                                "Dari proyek ini, saya belajar betapa krusialnya **User Feedback Loop** di awal
+                                pengembangan. Tanpa input langsung dari teknisi lab, sistem ini mungkin terlalu
+                                kompleks. Menyederhanakan alur input QR code terbukti meningkatkan efisiensi pendataan
+                                hingga 40%."
+                            </p>
+                            <div class="pt-4 flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-[10px] bg-emerald-500 flex items-center justify-center text-white font-bold text-xs">
+                                    S</div>
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-widest">Salman Mustapa</p>
+                                    <p class="text-[10px] text-zinc-500">Security Engineer & Dev</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End lg:col-span-3 (Main Content) -->
+    </div> <!-- End grid-cols-4 (Documentation Content Grid) -->
+
+    <!-- Related Projects Section -->
+    <section class="mt-32 pt-24 border-t border-zinc-200 dark:border-white/10 space-y-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div class="space-y-4">
+                <h3 class="text-xs font-bold tracking-[0.3em] text-emerald-500 uppercase">Explorasi Lanjutan</h3>
+                <h2 class="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-none">Proyek<br class="md:hidden"> Lainnya</h2>
+            </div>
+            <a href="index.html#projek" class="group inline-flex items-center gap-3 text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all uppercase tracking-widest border border-zinc-200 dark:border-white/10 px-8 py-4 rounded-[10px] hover:bg-zinc-100 dark:hover:bg-white/5 w-fit">
+                Semua Projek <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Related Card 1 -->
+            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                    <img src="https://images.unsplash.com/photo-1551808834-f7246ec41f4c?auto=format&fit=crop&q=80&w=600" 
+                         onerror="this.src='assets/not-found-image.svg'"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Networking">
+                    <div class="absolute top-4 left-4">
+                         <span class="px-3 py-1.5 rounded-[8px] bg-blue-500/20 text-blue-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-blue-500/20">Networking</span>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Monitoring Jaringan OPD</h4>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Sistem monitoring infrastruktur jaringan untuk dinas pemerintahan daerah dengan real-time alert.</p>
+                </div>
+            </a>
+
+            <!-- Related Card 2 -->
+            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=600" 
+                         onerror="this.src='assets/not-found-image.svg'"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mobile">
+                    <div class="absolute top-4 left-4">
+                         <span class="px-3 py-1.5 rounded-[8px] bg-purple-500/20 text-purple-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-purple-500/20">Android</span>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Mobile E-Government</h4>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Aplikasi mobile pelayanan publik untuk masyarakat kota Gorontalo yang terintegrasi API Dukcapil.</p>
+                </div>
+            </a>
+
+            <!-- Related Card 3 -->
+            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" 
+                         onerror="this.src='assets/not-found-image.svg'"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Security">
+                    <div class="absolute top-4 left-4">
+                         <span class="px-3 py-1.5 rounded-[8px] bg-red-500/20 text-red-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-red-500/20">Security</span>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Security Audit Tool</h4>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Framework otomatisasi audit keamanan server berbasis OpenVAS dengan laporan kepatuhan ISO.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+    <footer class="pb-24 pt-12 px-6 border-t border-zinc-200 dark:border-white/5 text-center space-y-4">
+        <p class="text-xs text-zinc-600 uppercase tracking-widest font-bold">Salman Mustapa &copy; 2026</p>
+        <div class="flex gap-6 justify-center text-zinc-600">
+            <a href="https://instagram.com/salman.mustapa" target="_blank"
+                class="hover:text-emerald-500 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="hover:text-emerald-500 transition-colors"><i data-lucide="twitter"
+                    class="w-4 h-4"></i></a>
+            <a href="https://linkedin.com/in/salman-mustapa" target="_blank"
+                class="hover:text-emerald-500 transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Dark mode check from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Gallery Interaction
+        const gallery = document.getElementById('gallery');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        nextBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: gallery.offsetWidth, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: -gallery.offsetWidth, behavior: 'smooth' });
+        });
+
+        // Hide buttons based on scroll
+        gallery.addEventListener('scroll', () => {
+            const atStart = gallery.scrollLeft === 0;
+            const atEnd = gallery.scrollLeft + gallery.offsetWidth >= gallery.scrollWidth - 10;
+            prevBtn.style.opacity = atStart ? '0' : '1';
+            prevBtn.style.pointerEvents = atStart ? 'none' : 'auto';
+            nextBtn.style.opacity = atEnd ? '0' : '1';
+            nextBtn.style.pointerEvents = atEnd ? 'none' : 'auto';
+        });
+
+        // Trigger initial scroll check
+        gallery.dispatchEvent(new Event('scroll'));
+    </script>
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama." 
+       target="_blank"
+       class="fixed bottom-28 right-6 md:bottom-8 md:right-8 z-50 group transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <span class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-4 py-2 rounded-[10px] text-[10px] font-bold uppercase tracking-widest text-emerald-500 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all origin-right pointer-events-none">
+                Jalin Kerja Sama
+            </span>
+            <div class="w-14 h-14 bg-emerald-500 text-white rounded-[10px] flex items-center justify-center shadow-2xl hover:bg-emerald-600 transition-all hover:scale-110 active:scale-95">
+                <i data-lucide="message-circle" class="w-7 h-7"></i>
+            </div>
+        </div>
+    </a>
+</body>
+
+</html>
