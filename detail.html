@@ -14,7 +14,16 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Project Detail - Salman Mustapa">
     <meta property="og:description" content="Detail teknis dan dokumentasi proyek portofolio.">
-    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:image" content="https://salmanmustapa.my.id/assets/icon.png">
+    <meta property="og:image:secure_url" content="https://salmanmustapa.my.id/assets/icon.png">
+    <meta property="og:image:type" content="image/png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Project Detail - Salman Mustapa">
+    <meta name="twitter:description" content="Detail teknis dan dokumentasi proyek portofolio.">
+    <meta name="twitter:image" content="https://salmanmustapa.my.id/assets/icon.png">
+    <meta name="twitter:url" content="https://salmanmustapa.my.id/detail.html">
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -92,7 +101,8 @@
                 <div class="flex items-center gap-3">
                     <span
                         class="category-badge px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded-[6px] border border-emerald-500/20">Programming</span>
-                    <span class="px-2 py-1 rounded-[6px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-widest">2024</span>
+                    <span
+                        class="px-2 py-1 rounded-[6px] border border-zinc-200 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-widest">2024</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-none uppercase">Sistem Pengelolaan
                     Sarana Lab</h1>
@@ -306,78 +316,102 @@
                                 <div>
                                     <p class="text-xs font-bold uppercase tracking-widest">Salman Mustapa</p>
                                     <p class="text-[10px] text-zinc-500">Security Engineer & Dev</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- End lg:col-span-3 (Main Content) -->
-    </div> <!-- End grid-cols-4 (Documentation Content Grid) -->
+        </div> <!-- End lg:col-span-3 (Main Content) -->
+        </div> <!-- End grid-cols-4 (Documentation Content Grid) -->
 
-    <!-- Related Projects Section -->
-    <section class="mt-32 pt-24 border-t border-zinc-200 dark:border-white/10 space-y-16">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div class="space-y-4">
-                <h3 class="text-xs font-bold tracking-[0.3em] text-emerald-500 uppercase">Explorasi Lanjutan</h3>
-                <h2 class="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-none">Proyek<br class="md:hidden"> Lainnya</h2>
+        <!-- Related Projects Section -->
+        <section class="mt-32 pt-24 border-t border-zinc-200 dark:border-white/10 space-y-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xs font-bold tracking-[0.3em] text-emerald-500 uppercase">Explorasi Lanjutan</h3>
+                    <h2 class="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-none">Proyek<br
+                            class="md:hidden"> Lainnya</h2>
+                </div>
+                <a href="index.html#projek"
+                    class="group inline-flex items-center gap-3 text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all uppercase tracking-widest border border-zinc-200 dark:border-white/10 px-8 py-4 rounded-[10px] hover:bg-zinc-100 dark:hover:bg-white/5 w-fit">
+                    Semua Projek <i data-lucide="arrow-right"
+                        class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
-            <a href="index.html#projek" class="group inline-flex items-center gap-3 text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all uppercase tracking-widest border border-zinc-200 dark:border-white/10 px-8 py-4 rounded-[10px] hover:bg-zinc-100 dark:hover:bg-white/5 w-fit">
-                Semua Projek <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Related Card 1 -->
-            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
-                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
-                    <img src="https://images.unsplash.com/photo-1551808834-f7246ec41f4c?auto=format&fit=crop&q=80&w=600" 
-                         onerror="this.src='assets/not-found-image.svg'"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Networking">
-                    <div class="absolute top-4 left-4">
-                         <span class="px-3 py-1.5 rounded-[8px] bg-blue-500/20 text-blue-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-blue-500/20">Networking</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Related Card 1 -->
+                <a href="#"
+                    class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                    <div
+                        class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                        <img src="https://images.unsplash.com/photo-1551808834-f7246ec41f4c?auto=format&fit=crop&q=80&w=600"
+                            onerror="this.src='assets/not-found-image.svg'"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Networking">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1.5 rounded-[8px] bg-blue-500/20 text-blue-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-blue-500/20">Networking</span>
+                        </div>
                     </div>
-                </div>
-                <div class="space-y-3">
-                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Monitoring Jaringan OPD</h4>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Sistem monitoring infrastruktur jaringan untuk dinas pemerintahan daerah dengan real-time alert.</p>
-                </div>
-            </a>
+                    <div class="space-y-3">
+                        <h4
+                            class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">
+                            Monitoring Jaringan OPD</h4>
+                        <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Sistem monitoring infrastruktur
+                            jaringan untuk dinas pemerintahan daerah dengan real-time alert.</p>
+                    </div>
+                </a>
 
-            <!-- Related Card 2 -->
-            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
-                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
-                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=600" 
-                         onerror="this.src='assets/not-found-image.svg'"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mobile">
-                    <div class="absolute top-4 left-4">
-                         <span class="px-3 py-1.5 rounded-[8px] bg-purple-500/20 text-purple-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-purple-500/20">Android</span>
+                <!-- Related Card 2 -->
+                <a href="#"
+                    class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                    <div
+                        class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=600"
+                            onerror="this.src='assets/not-found-image.svg'"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Mobile">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1.5 rounded-[8px] bg-purple-500/20 text-purple-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-purple-500/20">Android</span>
+                        </div>
                     </div>
-                </div>
-                <div class="space-y-3">
-                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Mobile E-Government</h4>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Aplikasi mobile pelayanan publik untuk masyarakat kota Gorontalo yang terintegrasi API Dukcapil.</p>
-                </div>
-            </a>
+                    <div class="space-y-3">
+                        <h4
+                            class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">
+                            Mobile E-Government</h4>
+                        <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Aplikasi mobile pelayanan
+                            publik untuk masyarakat kota Gorontalo yang terintegrasi API Dukcapil.</p>
+                    </div>
+                </a>
 
-            <!-- Related Card 3 -->
-            <a href="#" class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
-                <div class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" 
-                         onerror="this.src='assets/not-found-image.svg'"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Security">
-                    <div class="absolute top-4 left-4">
-                         <span class="px-3 py-1.5 rounded-[8px] bg-red-500/20 text-red-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-red-500/20">Security</span>
+                <!-- Related Card 3 -->
+                <a href="#"
+                    class="group block p-5 rounded-[12px] border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/10 hover:border-emerald-500/30 transition-all hover:shadow-2xl">
+                    <div
+                        class="aspect-video rounded-[8px] overflow-hidden mb-6 border border-zinc-200 dark:border-white/5 relative">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+                            onerror="this.src='assets/not-found-image.svg'"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Security">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1.5 rounded-[8px] bg-red-500/20 text-red-500 text-[9px] font-bold uppercase tracking-widest backdrop-blur-md border border-red-500/20">Security</span>
+                        </div>
                     </div>
-                </div>
-                <div class="space-y-3">
-                    <h4 class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">Security Audit Tool</h4>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Framework otomatisasi audit keamanan server berbasis OpenVAS dengan laporan kepatuhan ISO.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-</main>
+                    <div class="space-y-3">
+                        <h4
+                            class="font-bold text-xl uppercase tracking-tight group-hover:text-emerald-500 transition-colors leading-tight">
+                            Security Audit Tool</h4>
+                        <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">Framework otomatisasi audit
+                            keamanan server berbasis OpenVAS dengan laporan kepatuhan ISO.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer class="pb-24 pt-12 px-6 border-t border-zinc-200 dark:border-white/5 text-center space-y-4">
         <p class="text-xs text-zinc-600 uppercase tracking-widest font-bold">Salman Mustapa &copy; 2026</p>
@@ -429,14 +463,15 @@
         gallery.dispatchEvent(new Event('scroll'));
     </script>
     <!-- WhatsApp FAB -->
-    <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama." 
-       target="_blank"
-       class="fixed bottom-28 right-6 md:bottom-8 md:right-8 z-50 group transition-all duration-300">
+    <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama."
+        target="_blank" class="fixed bottom-28 right-6 md:bottom-8 md:right-8 z-50 group transition-all duration-300">
         <div class="flex items-center gap-3">
-            <span class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-4 py-2 rounded-[10px] text-[10px] font-bold uppercase tracking-widest text-emerald-500 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all origin-right pointer-events-none">
+            <span
+                class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 px-4 py-2 rounded-[10px] text-[10px] font-bold uppercase tracking-widest text-emerald-500 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all origin-right pointer-events-none">
                 Jalin Kerja Sama
             </span>
-            <div class="w-14 h-14 bg-emerald-500 text-white rounded-[10px] flex items-center justify-center shadow-2xl hover:bg-emerald-600 transition-all hover:scale-110 active:scale-95">
+            <div
+                class="w-14 h-14 bg-emerald-500 text-white rounded-[10px] flex items-center justify-center shadow-2xl hover:bg-emerald-600 transition-all hover:scale-110 active:scale-95">
                 <i data-lucide="message-circle" class="w-7 h-7"></i>
             </div>
         </div>
