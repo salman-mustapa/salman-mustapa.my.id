@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="article-page-title">Catatan Teknikal - Salman Mustapa, S.Kom.</title>
+    <title id="article-page-title">Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js - Salman Mustapa, S.Kom.</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" id="article-meta-desc"
-        content="Dokumentasi dan artikel teknikal backend engineering, IoT telemetry EMQX, SentinelOne XDR security, dan performa database oleh Salman Mustapa, S.Kom.">
+        content="Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <45ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL oleh Salman Mustapa, S.Kom.">
     <meta name="keywords"
-        content="Backend Engineering, IoT Telemetry, EMQX MQTT, SentinelOne XDR, Linux VPS Hardening, PostgreSQL Indexing, Express.js, Laravel, Salman Mustapa, Gorontalo">
+        content="IoT Telemetry, EMQX MQTT Broker, Express.js, Node.js, NetraHome, Vue.js, Flutter, Real-Time Sensor, PostgreSQL, Salman Mustapa, Gorontalo">
     <meta name="author" content="Salman Mustapa, S.Kom.">
 
     <!-- Agentic Browsing & AI Meta -->
-    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation">
+    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation - EMQX MQTT & Express.js IoT Telemetry">
     <link rel="alternate" type="text/markdown" title="LLM Summary" href="https://salmanmustapa.my.id/llms.txt">
     <link rel="alternate" type="text/markdown" title="LLM Full Context" href="https://salmanmustapa.my.id/llms-full.txt">
 
@@ -22,8 +22,8 @@
     <script defer src="https://umami.samrifa.com/script.js" data-website-id="3cfdebc9-2a4f-4a12-880e-67e85629038b"></script>
 
     <!-- Open Graph -->
-    <meta property="og:title" id="article-og-title" content="Catatan Teknikal - Salman Mustapa">
-    <meta property="og:description" id="article-og-desc" content="Dokumentasi dan insight teknikal backend engineering & security.">
+    <meta property="og:title" id="article-og-title" content="Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js">
+    <meta property="og:description" id="article-og-desc" content="Studi kasus nyata proyek NetraHome: Ingesti data telemetri sensor IoT real-time berlatensi rendah.">
     <meta property="og:image" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
     <meta property="og:type" content="article">
 
@@ -96,7 +96,6 @@
             line-height: 1.7;
         }
 
-        /* Responsive Floating FAB WhatsApp Styling */
         .wa-fab {
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -124,10 +123,10 @@
         <!-- Article Header Container -->
         <div class="space-y-6 pb-8 border-b border-zinc-200 dark:border-white/10">
             <div class="flex flex-wrap items-center gap-3">
-                <span id="article-badge" class="px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded-md border border-emerald-500/20">IoT Telemetry</span>
+                <span id="article-badge" class="px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded-md border border-emerald-500/20">IoT Telemetry & Backend</span>
                 <span id="article-date" class="text-xs font-semibold text-zinc-400">Maret 2026</span>
                 <span class="text-zinc-300 dark:text-zinc-700">•</span>
-                <span id="article-readtime" class="text-xs font-semibold text-zinc-400">7 Menit Baca</span>
+                <span id="article-readtime" class="text-xs font-semibold text-zinc-400">8 Menit Baca</span>
             </div>
             <h1 id="article-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
                 Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js
@@ -143,8 +142,103 @@
             </div>
         </div>
 
-        <!-- Article Content Body -->
+        <!-- Article Content Body (With Rich Default Content HTML) -->
         <article id="article-body" class="article-content text-zinc-700 dark:text-zinc-300 text-base">
+            <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (*Internet of Things*) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan **bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)**.</p>
+
+            <p>Pengalaman teknikal ini saya dapatkan secara langsung dalam merancang dan membangun infrastruktur backend proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada ekosistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (seperti suhu ruangan, kelembaban, status sakelar pintar, pengawasan konsumsi daya listrik, hingga kuota pemakaian AI token) secara kontinu setiap detik.</p>
+
+            <p>Untuk memproses arus data telemetri yang intensif ini tanpa membebani server backend, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
+
+            <h2>1. Mengapa Menggunakan Protokol MQTT & EMQX Broker?</h2>
+            <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan *overhead header* 1KB+ per paket serta teknik *polling* yang boros daya dan memicu latensi tinggi, prokol **MQTT (Message Queuing Telemetry Transport)** beroperasi menggunakan model *Publish/Subscribe* yang sangat efisien dengan ukuran header hanya **2 Byte**.</p>
+
+            <p>Di antara berbagai pilihan broker MQTT (seperti Mosquitto atau VernEMQ), kami memilih <strong>EMQX Broker</strong> untuk proyek NetraHome karena beberapa alasan kunci:</p>
+            <ul>
+                <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT simultan secara efisien.</li>
+                <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode *middleman* yang kompleks.</li>
+                <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (*Access Control List*) per <em>Client ID</em> sensor.</li>
+            </ul>
+
+            <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
+            <p>Arsitektur aliran data telemetri NetraHome dirancang secara bertingkat untuk menjamin kecepatan balasan sub-50ms dari sensor hingga layar aplikasi pengguna:</p>
+
+            <div class="my-6 p-5 rounded-xl bg-zinc-900 text-emerald-400 font-mono text-xs leading-relaxed overflow-x-auto border border-zinc-800">
+                [Perangkat Sensor NetraHome Users] <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ (MQTTS Port 8883 - Enkripsi TLS/SSL & JWT Token)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+                [EMQX Broker Cluster Engine] ──(Rule Engine Webhook)──► [Express.js Backend Service]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+                [WebSockets Gateway Engine] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PostgreSQL Time-Series DB]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─► Dashboard Web Monitoring (Vue.js)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─► Aplikasi Mobile User (Flutter)
+            </div>
+
+            <h2>3. Implementasi Kode Subscriber pada Express.js (Node.js)</h2>
+            <p>Berikut adalah contoh implementasi skrip backend Node.js (Express.js) yang terhubung ke EMQX Broker untuk menerima, memverifikasi, dan mencatat data telemetri sensor ke database:</p>
+
+            <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>const mqtt = require('mqtt');
+const { Pool } = require('pg');
+
+// Konfigurasi Database PostgreSQL
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+});
+
+// Koneksi Aman MQTTS ke EMQX Broker
+const client = mqtt.connect('mqtts://broker.samrifa.com:8883', {
+    clientId: 'netrahome_backend_service',
+    username: process.env.MQTT_USER,
+    password: process.env.MQTT_PASSWORD,
+    rejectUnauthorized: true
+});
+
+client.on('connect', () => {
+    console.log('✅ Terhubung secara aman ke EMQX Broker NetraHome');
+    // Subscribe ke seluruh topik telemetri sensor pengguna (QoS 1)
+    client.subscribe('netrahome/devices/+/telemetry', { qos: 1 });
+});
+
+client.on('message', async (topic, payload) => {
+    try {
+        const deviceId = topic.split('/')[2];
+        const data = JSON.parse(payload.toString());
+
+        // Ingesti data telemetri ke PostgreSQL
+        const query = `
+            INSERT INTO device_telemetry_logs (device_id, temperature, humidity, power_watts, ai_tokens, recorded_at)
+            VALUES ($1, $2, $3, $4, $5, NOW())
+        `;
+        await pool.query(query, [deviceId, data.temp, data.hum, data.power, data.tokens]);
+
+        // Broadcast data real-time via WebSockets ke Vue.js & Flutter
+        io.to(`device_${deviceId}`).emit('telemetry_update', data);
+
+    } catch (err) {
+        console.error('❌ Gagal memproses payload telemetri MQTT:', err);
+    }
+});</code></pre>
+
+            <h2>4. Integrasi Multi-Platform (Vue.js Web & Flutter Mobile)</h2>
+            <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via **WebSockets Gateway**:
+            <ul>
+                <li><strong>Dashboard Web (Vue.js):</strong> Menampilkan grafik tren suhu, kelembaban, dan konsumsi daya secara real-time menggunakan ECharts / Chart.js tanpa perlu melakukan refresh halaman.</li>
+                <li><strong>Aplikasi Mobile (Flutter):</strong> Menerima push notifikasi instan jika sensor mendeteksi anomali suhu atau kelebihan batas konsumsi daya listrik.</li>
+            </ul>
+            </p>
+
+            <h2>5. Benchmark Latensi & Kesimpulan</h2>
+            <p>Dengan mengkombinasikan keunggulan **EMQX Broker**, **Express.js**, dan database **PostgreSQL**, pengujian beban (*stress testing*) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
+            <ul>
+                <li><strong>Throughput:</strong> Berhasil memproses lebih dari **5.000 payload telemetri per detik**.</li>
+                <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka **38 ms – 45 ms**.</li>
+                <li><strong>Penggunaan Resource Server:</strong> Beban CPU VPS tetap efisien di bawah 15%.</li>
+            </ul>
+
+            <p>Arsitektur ini membuktikan bahwa penggabungan protokol MQTT yang tepat bersama backend Node.js dan enkripsi TLS mampu menghasilkan sistem telemetri IoT kelas industri yang cepat, aman, dan sangat stabil.</p>
         </article>
 
         <!-- Author Bio Box Footer -->
@@ -257,38 +351,51 @@
                 title: 'Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js',
                 metaDesc: 'Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <50ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL.',
                 content: `
-                    <p>Dalam ekosistem <em>Smart Home</em> dan industri IoT modern, tantangan terbesar backend engineer bukanlah sekadar menyimpan data, melainkan **bagaimana menangani ribuan paket pesan telemetri sensor secara simultan tanpa latency dan tanpa kehilangan data (zero packet loss)**.</p>
-                    
-                    <p>Pengalaman ini saya dapatkan secara langsung dalam pengembangan proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada sistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (suhu, kelembaban, status sakelar, pengawasan daya perangkat, hingga AI token usage) secara kontinu setiap detik. Untuk mengolahnya, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
+                    <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (*Internet of Things*) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan **bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)**.</p>
 
-                    <h2>1. Mengapa Memilih EMQX MQTT Broker?</h2>
-                    <p>Dibandingkan broker tradisional seperti Mosquitto biasa atau polling HTTP standar, EMQX menawarkan beberapa keunggulan kritis:</p>
+                    <p>Pengalaman teknikal ini saya dapatkan secara langsung dalam merancang dan membangun infrastruktur backend proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada ekosistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (seperti suhu ruangan, kelembaban, status sakelar pintar, pengawasan konsumsi daya listrik, hingga kuota pemakaian AI token) secara kontinu setiap detik.</p>
+
+                    <p>Untuk memproses arus data telemetri yang intensif ini tanpa membebani server backend, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
+
+                    <h2>1. Mengapa Menggunakan Protokol MQTT & EMQX Broker?</h2>
+                    <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan *overhead header* 1KB+ per paket serta teknik *polling* yang boros daya dan memicu latensi tinggi, prokol **MQTT (Message Queuing Telemetry Transport)** beroperasi menggunakan model *Publish/Subscribe* yang sangat efisien dengan ukuran header hanya **2 Byte**.</p>
+
+                    <p>Di antara berbagai pilihan broker MQTT (seperti Mosquitto atau VernEMQ), kami memilih <strong>EMQX Broker</strong> untuk proyek NetraHome karena beberapa alasan kunci:</p>
                     <ul>
-                        <li><strong>High Concurrency & Throughput:</strong> Mampu menangani hingga jutaan koneksi MQTT bersamaan menggunakan arsitektur Erlang/OTP.</li>
-                        <li><strong>Built-in Rule Engine:</strong> Memungkinkan data MQTT diteruskan langsung ke database PostgreSQL atau REST API Webhook tanpa membebani CPU backend.</li>
-                        <li><strong>Security & Access Control (ACL):</strong> Dukungan native enkripsi TLS/SSL port 8883 dan otentikasi token JWT/PostgreSQL untuk setiap <em>Client ID</em> sensor.</li>
+                        <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT bersamaan secara efisien.</li>
+                        <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode *middleman* yang kompleks.</li>
+                        <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (*Access Control List*) per <em>Client ID</em> sensor.</li>
                     </ul>
 
                     <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
-                    <p>Arsitektur aliran data telemetri dirancang secara bertingkat untuk menjamin kecepatan balasan sub-50ms:</p>
+                    <p>Arsitektur aliran data telemetri NetraHome dirancang secara bertingkat untuk menjamin kecepatan balasan sub-50ms dari sensor hingga layar aplikasi pengguna:</p>
 
-                    <div class="my-6 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 font-mono text-xs leading-relaxed">
-                        [Perangkat Sensor NetraHome] <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ (MQTTS Port 8883 - Enkripsi TLS/SSL)<br>
+                    <div class="my-6 p-5 rounded-xl bg-zinc-900 text-emerald-400 font-mono text-xs leading-relaxed overflow-x-auto border border-zinc-800">
+                        [Perangkat Sensor NetraHome Users] <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ (MQTTS Port 8883 - Enkripsi TLS/SSL & JWT Token)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        [EMQX Broker Cluster] ──(Rule Engine Webhook)──► [Express.js Backend API]<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        [WebSockets Gateway] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PostgreSQL Time-Series Log]<br>
+                        [EMQX Broker Cluster Engine] ──(Rule Engine Webhook)──► [Express.js Backend Service]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+                        [WebSockets Gateway Engine] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PostgreSQL Time-Series DB]<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─► Dashboard Web (Vue.js)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─► Aplikasi Mobile (Flutter)
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─► Dashboard Web Monitoring (Vue.js)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─► Aplikasi Mobile User (Flutter)
                     </div>
 
-                    <h2>3. Implementasi Kode Subscriber pada Express.js</h2>
-                    <p>Berikut adalah potongan skrip Node.js (Express.js) yang terhubung ke EMQX Broker untuk melakukan verifikasi payload telemetry:</p>
+                    <h2>3. Implementasi Kode Subscriber pada Express.js (Node.js)</h2>
+                    <p>Berikut adalah contoh implementasi skrip backend Node.js (Express.js) yang terhubung ke EMQX Broker untuk menerima, memverifikasi, dan mencatat data telemetri sensor ke database:</p>
 
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>const mqtt = require('mqtt');
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>const mqtt = require('mqtt');
+const { Pool } = require('pg');
+
+// Konfigurasi Database PostgreSQL
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+});
+
+// Koneksi Aman MQTTS ke EMQX Broker
 const client = mqtt.connect('mqtts://broker.samrifa.com:8883', {
     clientId: 'netrahome_backend_service',
     username: process.env.MQTT_USER,
@@ -297,24 +404,48 @@ const client = mqtt.connect('mqtts://broker.samrifa.com:8883', {
 });
 
 client.on('connect', () => {
-    console.log('Terhubung ke EMQX MQTT Broker NetraHome');
+    console.log('✅ Terhubung secara aman ke EMQX Broker NetraHome');
+    // Subscribe ke seluruh topik telemetri sensor pengguna (QoS 1)
     client.subscribe('netrahome/devices/+/telemetry', { qos: 1 });
 });
 
 client.on('message', async (topic, payload) => {
     try {
+        const deviceId = topic.split('/')[2];
         const data = JSON.parse(payload.toString());
-        // Ingesti data sensor ke database time-series PostgreSQL
-        await saveTelemetryToDatabase(topic, data);
-        // Broadcast via WebSockets ke Vue.js Dashboard & Flutter Mobile
-        broadcastToClients(topic, data);
+
+        // Ingesti data telemetri ke PostgreSQL
+        const query = `
+            INSERT INTO device_telemetry_logs (device_id, temperature, humidity, power_watts, ai_tokens, recorded_at)
+            VALUES ($1, $2, $3, $4, $5, NOW())
+        `;
+        await pool.query(query, [deviceId, data.temp, data.hum, data.power, data.tokens]);
+
+        // Broadcast data real-time via WebSockets ke Vue.js & Flutter
+        io.to(\`device_\${deviceId}\`).emit('telemetry_update', data);
+
     } catch (err) {
-        console.error('Error parsing MQTT payload:', err);
+        console.error('❌ Gagal memproses payload telemetri MQTT:', err);
     }
 });</code></pre>
 
-                    <h2>4. Kesimpulan & Hasil Pengujian</h2>
-                    <p>Dengan menerapkan arsitektur ini pada proyek NetraHome, pengujian beban (*stress test*) membuktikan sistem mampu memproses lebih dari 5.000 payload telemetri per detik dengan rata-rata waktu respon **di bawah 45 milidetik**. Integrasi ini memberikan pengalaman pengguna yang sangat mulus baik di Web Dashboard berbasis Vue.js maupun Aplikasi Mobile Flutter.</p>
+                    <h2>4. Integrasi Multi-Platform (Vue.js Web & Flutter Mobile)</h2>
+                    <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via **WebSockets Gateway**:
+                    <ul>
+                        <li><strong>Dashboard Web (Vue.js):</strong> Menampilkan grafik tren suhu, kelembaban, dan konsumsi daya secara real-time menggunakan ECharts / Chart.js tanpa perlu melakukan refresh halaman.</li>
+                        <li><strong>Aplikasi Mobile (Flutter):</strong> Menerima push notifikasi instan jika sensor mendeteksi anomali suhu atau kelebihan batas konsumsi daya listrik.</li>
+                    </ul>
+                    </p>
+
+                    <h2>5. Benchmark Latensi & Kesimpulan</h2>
+                    <p>Dengan mengkombinasikan keunggulan **EMQX Broker**, **Express.js**, dan database **PostgreSQL**, pengujian beban (*stress testing*) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
+                    <ul>
+                        <li><strong>Throughput:</strong> Berhasil memproses lebih dari **5.000 payload telemetri per detik**.</li>
+                        <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka **38 ms – 45 ms**.</li>
+                        <li><strong>Penggunaan Resource Server:</strong> Beban CPU VPS tetap efisien di bawah 15%.</li>
+                    </ul>
+
+                    <p>Arsitektur ini membuktikan bahwa penggabungan protokol MQTT yang tepat bersama backend Node.js dan enkripsi TLS mampu menghasilkan sistem telemetri IoT kelas industri yang cepat, aman, dan sangat stabil.</p>
                 `
             },
             'sentinelone-xdr-vps-hardening': {
@@ -340,7 +471,7 @@ client.on('message', async (topic, payload) => {
 
                     <h3>B. Konfigurasi UFW Firewall (Uncomplicated Firewall)</h3>
                     <p>Hanya membuka port yang benar-benar dibutuhkan oleh service aplikasi:</p>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>sudo ufw default deny incoming
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 2289/tcp comment 'Custom SSH Port'
 sudo ufw allow 80/tcp comment 'HTTP Web Server'
@@ -352,7 +483,7 @@ sudo ufw enable</code></pre>
                     <p><strong>SentinelOne XDR</strong> bekerja menggunakan AI terintegrasi pada level kernel (EBPF / Kernel Modules) tanpa mengabaikan performa CPU server. Keunggulan utamanya adalah kemampuan **Automated Rollback** dan visibilitas proses secara *real-time*.</p>
 
                     <p>Langkah instalasi agent SentinelOne pada server VPS Linux backend:</p>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code># 1. Download package agent resmi SentinelOne (.deb / .rpm)
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code># 1. Download package agent resmi SentinelOne (.deb / .rpm)
 sudo dpkg -i SentinelAgent_linux_v23_2.deb
 
 # 2. Registrasikan site key token ke SentinelOne Management Console
@@ -393,14 +524,14 @@ sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
                     <p>Misalkan kita memiliki tabel `device_telemetry_logs` dengan jutaan baris data. Tanpa indeks, query pencarian lokasi dan tanggal akan melakukan <em>Full Table Scan</em>.</p>
 
                     <h3>A. Query Tanpa Indeks (Lambat ~ 1,450 ms)</h3>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>SELECT * FROM device_telemetry_logs 
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>SELECT * FROM device_telemetry_logs 
 WHERE device_id = 'DEV-9921' 
   AND created_at >= '2026-03-01' 
 ORDER BY created_at DESC LIMIT 50;</code></pre>
 
                     <h3>B. Pembuatan Composite Indexing di PostgreSQL</h3>
                     <p>Kita buat indeks gabungan B-Tree pada kolom `device_id` dan `created_at`:</p>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>CREATE INDEX idx_telemetry_device_created 
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>CREATE INDEX idx_telemetry_device_created 
 ON device_telemetry_logs (device_id, created_at DESC);</code></pre>
 
                     <h2>3. Hasil Benchmark Performa</h2>
@@ -428,11 +559,13 @@ ON device_telemetry_logs (device_id, created_at DESC);</code></pre>
 
             // Read URL query parameter ?id=...
             const urlParams = new URLSearchParams(window.location.search);
-            const rawId = urlParams.get('id') ? urlParams.get('id').trim() : 'emqx-express-iot';
+            let rawId = urlParams.get('id');
+            if (rawId) {
+                rawId = rawId.trim();
+            }
 
-            const article = articlesDatabase[rawId] || articlesDatabase['emqx-express-iot'];
-
-            if (article) {
+            if (rawId && articlesDatabase[rawId]) {
+                const article = articlesDatabase[rawId];
                 document.title = `${article.title} - Salman Mustapa, S.Kom.`;
                 $('#article-page-title').text(`${article.title} - Salman Mustapa, S.Kom.`);
                 $('#article-meta-desc').attr('content', article.metaDesc);
