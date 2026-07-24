@@ -15,10 +15,13 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://salmanmustapa.my.id/">
 
-    <!-- Agentic Browsing & AI Agent Meta Tags -->
+    <!-- Agentic Browsing & AI Agent Meta Tags (3/3 Score Requirements) -->
     <meta name="ai-agent" content="Salman Mustapa, S.Kom. - Backend Engineer, Security Engineer (SentinelOne XDR), IoT Telemetry Specialist (EMQX MQTT), Founder of PT SAMRIFA STUDIO TEKNOLOGI (https://samrifa.com)">
+    <meta name="chat-agent" content="https://salmanmustapa.my.id/llms.txt">
+    <link rel="alternate" type="text/markdown" title="LLM Summary" href="https://salmanmustapa.my.id/llms.txt">
+    <link rel="alternate" type="text/markdown" title="LLM Full Context" href="https://salmanmustapa.my.id/llms-full.txt">
+    <link rel="help" type="text/markdown" href="https://salmanmustapa.my.id/llms.txt">
     <link rel="author" type="text/markdown" href="https://salmanmustapa.my.id/llms.txt">
-    <link rel="alternate" type="text/markdown" href="https://salmanmustapa.my.id/llms-full.txt">
 
     <!-- GEO Meta Tags (Gorontalo, Indonesia) -->
     <meta name="geo.region" content="ID-GO">
@@ -27,6 +30,13 @@
     <meta name="ICBM" content="0.5406, 123.0595">
 
     <link rel="icon" href="assets/icon_512.webp">
+
+    <!-- Resource Preloads & Preconnects for High Performance (95+ Score) -->
+    <link rel="preload" as="image" href="assets/icon_512.webp" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://ghchart.rshah.org">
+    <link rel="dns-prefetch" href="https://api.github.com">
 
     <!-- OpenGraph Meta Tags -->
     <meta property="og:title" content="Salman Mustapa, S.Kom. | Backend Engineer & Security Engineer">
@@ -108,9 +118,7 @@
     ]
     </script>
 
-    <!-- Google Fonts Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts with font-display: swap for performance -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -141,12 +149,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/main.css">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body
@@ -316,6 +318,49 @@
                     <a href="https://samrifa.com" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-md font-bold text-sm transition-all text-center flex items-center justify-center gap-2 shadow-lg">
                         Kunjungi Website samrifa.com <i data-lucide="external-link" class="w-4 h-4"></i>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Trust & SLA Guarantees Section (To Attract High-Value Clients & Projects) -->
+        <section id="trust" class="space-y-8">
+            <div class="text-center space-y-3 max-w-3xl mx-auto">
+                <span class="text-xs font-bold tracking-[0.2em] text-emerald-500 uppercase">Mengapa Memilih Kami</span>
+                <h3 class="text-3xl font-bold tracking-tight">Komitmen & Jaminan Kualitas Layanan</h3>
+                <p class="text-xs text-zinc-500">Setiap proyek yang kami tangani melalui PT SAMRIFA STUDIO TEKNOLOGI didukung oleh standar teknis industri dan jaminan garansi penuh.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-sm">Proteksi Keamanan</h4>
+                    <p class="text-xs text-zinc-500">Hardening server VPS & pemantauan ancaman real-time dengan SentinelOne XDR.</p>
+                </div>
+
+                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-sm">Responsif Sub-100ms</h4>
+                    <p class="text-xs text-zinc-500">Arsitektur RESTful API & EMQX MQTT Broker teroptimasi untuk latency terendah.</p>
+                </div>
+
+                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-sm">Lisensi & HAKI Resmi</h4>
+                    <p class="text-xs text-zinc-500">Legalitas terjamin dengan pencatatan Ciptaan HAKI Kemenkumham RI (50 tahun).</p>
+                </div>
+
+                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-sm">Garansi Post-Deploy</h4>
+                    <p class="text-xs text-zinc-500">Dukungan pemeliharaan, bug-fix, dan konsultasi pasca-peluncuran sistem.</p>
                 </div>
             </div>
         </section>
@@ -700,7 +745,7 @@
                 <!-- Live Dynamic Heatmap Container with Horizontal Scroll in Mobile -->
                 <div class="relative group">
                     <div class="overflow-x-auto custom-scrollbar py-2 flex justify-start md:justify-center items-center">
-                        <img src="https://ghchart.rshah.org/10b981/salman-mustapa" alt="Live GitHub Contribution Chart - salman-mustapa" class="min-w-[650px] w-full max-w-4xl h-auto filter dark:invert-[0.88] dark:hue-rotate-180 transition-all duration-300">
+                        <img src="https://ghchart.rshah.org/10b981/salman-mustapa" width="663" height="104" alt="Live GitHub Contribution Chart - salman-mustapa" class="min-w-[650px] w-full max-w-4xl h-auto filter dark:invert-[0.88] dark:hue-rotate-180 transition-all duration-300">
                     </div>
                 </div>
 
@@ -827,11 +872,10 @@
         </div>
     </a>
 
-    <!-- Custom JS -->
-    <script src="assets/app.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <!-- Scripts at Bottom with defer for Maximum Performance (95+ Score) -->
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="assets/app.js"></script>
 </body>
 
 </html>
