@@ -31,7 +31,7 @@
 
     <link rel="icon" href="assets/icon_512.webp">
 
-    <!-- Resource Preloads & Preconnects for High Performance (95+ Score) -->
+    <!-- Resource Preloads & Preconnects for High Performance -->
     <link rel="preload" as="image" href="assets/icon_512.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,7 +118,7 @@
     ]
     </script>
 
-    <!-- Google Fonts with font-display: swap for performance -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -178,6 +178,8 @@
                 class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Karir</a>
             <a href="#projek"
                 class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Projek</a>
+            <a href="#blog"
+                class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Artikel</a>
             <a href="#services"
                 class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Layanan</a>
             <a href="#github"
@@ -197,7 +199,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Bottom Navbar (App-Style like Image 2) -->
+    <!-- Mobile Bottom Navbar -->
     <nav
         class="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl px-2 py-2 rounded-t-2xl flex justify-around items-center shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-colors duration-300">
         <a href="#hero" class="mobile-nav-item flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all text-[11px] font-medium"
@@ -215,10 +217,10 @@
             <i data-lucide="grid" class="w-5 h-5"></i>
             <span>Projek</span>
         </a>
-        <a href="#services" class="mobile-nav-item flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all text-[11px] font-medium"
-            title="Layanan">
-            <i data-lucide="briefcase" class="w-5 h-5"></i>
-            <span>Layanan</span>
+        <a href="#blog" class="mobile-nav-item flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all text-[11px] font-medium"
+            title="Artikel">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            <span>Artikel</span>
         </a>
         <a href="#contact" class="mobile-nav-item flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 transition-all text-[11px] font-medium"
             title="Kontak">
@@ -301,7 +303,7 @@
             </div>
         </section>
 
-        <!-- Company Feature Section (PT SAMRIFA STUDIO TEKNOLOGI Showcase - Fixed Hover & Contrast) -->
+        <!-- Company Feature Section (PT SAMRIFA STUDIO TEKNOLOGI Showcase) -->
         <section id="company" class="card-border p-8 md:p-10 rounded-[12px] bg-zinc-900 dark:bg-zinc-900/90 text-white space-y-6 shadow-xl relative overflow-hidden">
             <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
@@ -318,49 +320,6 @@
                     <a href="https://samrifa.com" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-md font-bold text-sm transition-all text-center flex items-center justify-center gap-2 shadow-lg">
                         Kunjungi Website samrifa.com <i data-lucide="external-link" class="w-4 h-4"></i>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Client Trust & SLA Guarantees Section (To Attract High-Value Clients & Projects) -->
-        <section id="trust" class="space-y-8">
-            <div class="text-center space-y-3 max-w-3xl mx-auto">
-                <span class="text-xs font-bold tracking-[0.2em] text-emerald-500 uppercase">Mengapa Memilih Kami</span>
-                <h3 class="text-3xl font-bold tracking-tight">Komitmen & Jaminan Kualitas Layanan</h3>
-                <p class="text-xs text-zinc-500">Setiap proyek yang kami tangani melalui PT SAMRIFA STUDIO TEKNOLOGI didukung oleh standar teknis industri dan jaminan garansi penuh.</p>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-sm">Proteksi Keamanan</h4>
-                    <p class="text-xs text-zinc-500">Hardening server VPS & pemantauan ancaman real-time dengan SentinelOne XDR.</p>
-                </div>
-
-                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
-                        <i data-lucide="zap" class="w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-sm">Responsif Sub-100ms</h4>
-                    <p class="text-xs text-zinc-500">Arsitektur RESTful API & EMQX MQTT Broker teroptimasi untuk latency terendah.</p>
-                </div>
-
-                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
-                        <i data-lucide="award" class="w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-sm">Lisensi & HAKI Resmi</h4>
-                    <p class="text-xs text-zinc-500">Legalitas terjamin dengan pencatatan Ciptaan HAKI Kemenkumham RI (50 tahun).</p>
-                </div>
-
-                <div class="card-border p-6 rounded-xl space-y-3 text-center bg-white dark:bg-zinc-900/40">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center">
-                        <i data-lucide="clock" class="w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-sm">Garansi Post-Deploy</h4>
-                    <p class="text-xs text-zinc-500">Dukungan pemeliharaan, bug-fix, dan konsultasi pasca-peluncuran sistem.</p>
                 </div>
             </div>
         </section>
@@ -517,6 +476,67 @@
             </div>
         </section>
 
+        <!-- Articles / Technical Blog Section (With Full Dynamic Reading Pages) -->
+        <section id="blog" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Artikel & Insight Teknikal</h2>
+                <h3 class="text-3xl font-bold">Catatan & Dokumentasi Teknikal</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Article 1 -->
+                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
+                            <span class="text-emerald-500">IoT Telemetry</span>
+                            <span>Maret 2026</span>
+                        </div>
+                        <h4 class="text-lg font-bold leading-snug">Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js</h4>
+                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
+                            Pengalaman nyata membangun backend NetraHome: integrasi EMQX MQTT Broker, otentikasi TLS/SSL & ACL token, serta pengolahan telemetri sensor time-series berlatensi <50ms.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
+                        <a href="blog-detail.html?id=emqx-express-iot" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
+                            <span class="text-emerald-500">Cybersecurity</span>
+                            <span>Agustus 2025</span>
+                        </div>
+                        <h4 class="text-lg font-bold leading-snug">Hardening Server Linux VPS dan Proteksi Endpoint Menggunakan SentinelOne XDR</h4>
+                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
+                            Implementasi nyata SentinelOne XDR pada server Linux VPS: memperketat UFW firewall, penutupan port rentan, pemantauan telemetry ancaman, dan mitigasi malware zero-day.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
+                        <a href="blog-detail.html?id=sentinelone-xdr-vps-hardening" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
+                            <span class="text-emerald-500">Backend Engineering</span>
+                            <span>Januari 2025</span>
+                        </div>
+                        <h4 class="text-lg font-bold leading-snug">Desain RESTful API Modular Berperforma Tinggi dengan PostgreSQL & Indexing</h4>
+                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
+                            Penerapan prinsip SOLID, MVC/Clean Code pada Laravel & Node.js, serta pengolahan query SQL dengan B-Tree Composite Indexing untuk response time sub-100ms.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
+                        <a href="blog-detail.html?id=express-laravel-postgresql-performance" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- Services & Request Project Section -->
         <section id="services" class="space-y-12">
             <div class="space-y-4">
@@ -613,70 +633,8 @@
             </div>
         </section>
 
-        <!-- Articles / Technical Blog Section -->
-        <section id="blog" class="space-y-12">
-            <div class="space-y-4">
-                <h2 class="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Artikel & Insight Teknikal</h2>
-                <h3 class="text-3xl font-bold">Catatan & Dokumentasi Teknikal</h3>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Article 1 -->
-                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
-                            <span class="text-emerald-500">IoT Telemetry</span>
-                            <span>Maret 2026</span>
-                        </div>
-                        <h4 class="text-lg font-bold leading-snug">Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js</h4>
-                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
-                            Strategi mendeploy EMQX Broker, konfigurasi SSL/TLS, otentikasi token ACL, dan pengintegrasian service Express.js untuk memproses ribuan payload sensor time-series per detik.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
-                        <a href="https://salmanmustapa.my.id" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
-                    </div>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
-                            <span class="text-emerald-500">Cybersecurity</span>
-                            <span>Agustus 2025</span>
-                        </div>
-                        <h4 class="text-lg font-bold leading-snug">Hardening Server Linux VPS dan Proteksi Endpoint Menggunakan SentinelOne XDR</h4>
-                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
-                            Langkah praktis memperketat keamanan server Linux, konfigurasi UFW firewall, penutupan port rentan, serta monitoring telemetry ancaman menggunakan SentinelOne XDR.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
-                        <a href="https://salmanmustapa.my.id" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
-                    </div>
-                </article>
-
-                <!-- Article 3 -->
-                <article class="card-border p-6 rounded-[12px] space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
-                            <span class="text-emerald-500">Backend Engineering</span>
-                            <span>Januari 2025</span>
-                        </div>
-                        <h4 class="text-lg font-bold leading-snug">Desain RESTful API Modular Berperforma Tinggi dengan PostgreSQL & Indexing</h4>
-                        <p class="text-xs text-zinc-500 leading-relaxed line-clamp-3">
-                            Menerapkan prinsip SOLID, arsitektur MVC/Clean Code pada Laravel & Node.js, serta teknik indexing database untuk query balasan sub-100ms.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-zinc-200 dark:border-white/5">
-                        <a href="https://salmanmustapa.my.id" class="text-xs font-bold text-emerald-500 hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- GitHub Section (Ultra Responsive Layout for Desktop & Mobile) -->
+        <!-- GitHub Section -->
         <section id="github" class="space-y-8">
-            <!-- Header Title & Dynamic Badges Container -->
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                 <div class="space-y-2">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[11px] font-bold uppercase tracking-widest">
@@ -686,9 +644,7 @@
                     <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Kontribusi GitHub & Statistik Live</h3>
                 </div>
 
-                <!-- 3 Responsive Dynamic Stat Cards Grid -->
                 <div class="grid grid-cols-3 gap-3 w-full lg:w-auto">
-                    <!-- Repos Card -->
                     <div class="card-border p-3.5 sm:p-4 rounded-xl bg-white dark:bg-zinc-900/60 text-center flex flex-col items-center justify-center space-y-1">
                         <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider">
                             <i data-lucide="folder-git-2" class="w-3.5 h-3.5 text-emerald-500"></i> Repos
@@ -696,7 +652,6 @@
                         <p id="github-repos" class="text-xl sm:text-2xl font-black text-emerald-500">24</p>
                     </div>
 
-                    <!-- Stars Card -->
                     <div class="card-border p-3.5 sm:p-4 rounded-xl bg-white dark:bg-zinc-900/60 text-center flex flex-col items-center justify-center space-y-1">
                         <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider">
                             <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500"></i> Stars
@@ -704,7 +659,6 @@
                         <p id="github-stars" class="text-xl sm:text-2xl font-black text-amber-500">21</p>
                     </div>
 
-                    <!-- Followers Card -->
                     <div class="card-border p-3.5 sm:p-4 rounded-xl bg-white dark:bg-zinc-900/60 text-center flex flex-col items-center justify-center space-y-1">
                         <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider">
                             <i data-lucide="users" class="w-3.5 h-3.5 text-blue-500"></i> Followers
@@ -714,9 +668,7 @@
                 </div>
             </div>
 
-            <!-- Main Contribution Heatmap Showcase Card -->
             <div class="card-border p-5 sm:p-8 rounded-[16px] bg-white dark:bg-zinc-900/60 space-y-6 shadow-sm">
-                <!-- Counter & Legend Bar -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-zinc-200 dark:border-white/5">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center flex-shrink-0">
@@ -742,14 +694,12 @@
                     </div>
                 </div>
 
-                <!-- Live Dynamic Heatmap Container with Horizontal Scroll in Mobile -->
                 <div class="relative group">
                     <div class="overflow-x-auto custom-scrollbar py-2 flex justify-start md:justify-center items-center">
                         <img src="https://ghchart.rshah.org/10b981/salman-mustapa" width="663" height="104" alt="Live GitHub Contribution Chart - salman-mustapa" class="min-w-[650px] w-full max-w-4xl h-auto filter dark:invert-[0.88] dark:hue-rotate-180 transition-all duration-300">
                     </div>
                 </div>
 
-                <!-- Footer Footnote -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-[11px] text-zinc-500 pt-2 border-t border-zinc-100 dark:border-white/5">
                     <p class="flex items-center gap-1.5 italic">
                         <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-500"></i>
@@ -818,6 +768,7 @@
                     <li><a href="#company" class="hover:text-emerald-500 transition-colors">PT SAMRIFA STUDIO TEKNOLOGI</a></li>
                     <li><a href="#haki" class="hover:text-emerald-500 transition-colors">Hak Cipta (HAKI RI)</a></li>
                     <li><a href="#projek" class="hover:text-emerald-500 transition-colors">Portofolio Projek</a></li>
+                    <li><a href="#blog" class="hover:text-emerald-500 transition-colors">Catatan & Dokumentasi Teknikal</a></li>
                     <li><a href="#services" class="hover:text-emerald-500 transition-colors">Layanan & Request Proyek</a></li>
                 </ul>
             </div>
@@ -856,12 +807,10 @@
     <a href="https://wa.me/6282154488769?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama."
         target="_blank" aria-label="WhatsApp Contact" class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 wa-fab group">
         <div class="flex items-center gap-3">
-            <!-- Tooltip: Appears ONLY when hovering chat button -->
             <span
                 class="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider shadow-2xl transition-all duration-300 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none whitespace-nowrap">
                 Diskusi via WhatsApp
             </span>
-            <!-- Official WhatsApp Logo Icon with Pulse Ring Glow -->
             <div
                 class="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-2xl flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.4)] group-hover:scale-110 active:scale-95 transition-all duration-300 relative">
                 <span class="absolute inset-0 rounded-2xl bg-[#25D366] animate-ping opacity-25 pointer-events-none"></span>
@@ -872,7 +821,7 @@
         </div>
     </a>
 
-    <!-- Scripts at Bottom with defer for Maximum Performance (95+ Score) -->
+    <!-- Scripts at Bottom -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="assets/app.js"></script>

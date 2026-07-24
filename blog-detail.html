@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="article-page-title">Catatan Teknikal - Salman Mustapa, S.Kom.</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" id="article-meta-desc"
+        content="Dokumentasi dan artikel teknikal backend engineering, IoT telemetry EMQX, SentinelOne XDR security, dan performa database oleh Salman Mustapa, S.Kom.">
+    <meta name="keywords"
+        content="Backend Engineering, IoT Telemetry, EMQX MQTT, SentinelOne XDR, Linux VPS Hardening, PostgreSQL Indexing, Express.js, Laravel, Salman Mustapa, Gorontalo">
+    <meta name="author" content="Salman Mustapa, S.Kom.">
+
+    <!-- Agentic Browsing & AI Meta -->
+    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation">
+    <link rel="alternate" type="text/markdown" title="LLM Summary" href="https://salmanmustapa.my.id/llms.txt">
+    <link rel="alternate" type="text/markdown" title="LLM Full Context" href="https://salmanmustapa.my.id/llms-full.txt">
+
+    <!-- Umami Analytics -->
+    <script defer src="https://umami.samrifa.com/script.js" data-website-id="3cfdebc9-2a4f-4a12-880e-67e85629038b"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" id="article-og-title" content="Catatan Teknikal - Salman Mustapa">
+    <meta property="og:description" id="article-og-desc" content="Dokumentasi dan insight teknikal backend engineering & security.">
+    <meta property="og:image" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
+    <meta property="og:type" content="article">
+
+    <!-- Fonts & Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card-border {
+            border: 1px solid rgba(228, 228, 231, 0.4);
+        }
+
+        .dark .card-border {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        pre code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .article-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #10b981;
+        }
+
+        .article-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-200 dark:border-white/5 bg-white/80 dark:bg-zinc-950/80">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html#blog" class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Kembali Ke Artikel</span>
+            </a>
+            <div class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Technical <span class="text-emerald-500">Insights</span></div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-12">
+        <!-- Article Header Header -->
+        <div class="space-y-6 pb-8 border-b border-zinc-200 dark:border-white/10">
+            <div class="flex flex-wrap items-center gap-3">
+                <span id="article-badge" class="px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded-md border border-emerald-500/20">IoT Telemetry</span>
+                <span id="article-date" class="text-xs font-semibold text-zinc-400">Maret 2026</span>
+                <span class="text-zinc-300 dark:text-zinc-700">•</span>
+                <span id="article-readtime" class="text-xs font-semibold text-zinc-400">6 Menit Baca</span>
+            </div>
+            <h1 id="article-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js
+            </h1>
+            
+            <!-- Author Meta Box -->
+            <div class="flex items-center gap-4 pt-2">
+                <img src="assets/icon_512.webp" width="44" height="44" alt="Salman Mustapa, S.Kom." class="w-11 h-11 rounded-full border border-emerald-500/30 object-cover">
+                <div>
+                    <h4 class="text-sm font-bold">Salman Mustapa, S.Kom.</h4>
+                    <p class="text-xs text-zinc-500">Backend Engineer & Security Engineer • Founder <a href="https://samrifa.com" target="_blank" class="text-emerald-500 font-semibold hover:underline">PT SAMRIFA STUDIO TEKNOLOGI</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Body Content Container -->
+        <article id="article-body" class="article-content text-zinc-700 dark:text-zinc-300 text-base">
+        </article>
+
+        <!-- Author Bio Box Footer -->
+        <div class="card-border p-6 rounded-2xl bg-white dark:bg-zinc-900/50 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <img src="assets/icon_512.webp" width="72" height="72" alt="Salman Mustapa" class="w-18 h-18 rounded-2xl border border-emerald-500/20 object-cover flex-shrink-0">
+            <div class="space-y-2 text-center sm:text-left">
+                <h4 class="font-bold text-base">Ditulis oleh Salman Mustapa, S.Kom.</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed">
+                    Lulusan Sistem Informasi UNG (IPK 3.43), pemegang 3 Hak Cipta HAKI Kemenkumham RI, serta Founder & Lead Architect di PT SAMRIFA STUDIO TEKNOLOGI (samrifa.com). Spesialisasi dalam arsitektur backend Express.js/Laravel, telemetri IoT EMQX, dan SentinelOne XDR.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-3 justify-center sm:justify-start">
+                    <a href="https://wa.me/6282154488769?text=Halo%20Salman%2c%20saya%20membaca%20artikel%20teknikal%20Anda%20dan%20ingin%20berdiskusi." target="_blank" class="text-xs font-bold text-emerald-500 hover:underline flex items-center gap-1">
+                        Diskusi via WhatsApp <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                    <a href="index.html#blog" class="text-xs font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">Lihat Artikel Lainnya →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pb-12 pt-8 px-6 border-t border-zinc-200 dark:border-white/5 text-center text-xs text-zinc-500">
+        <p>Salman Mustapa, S.Kom. &copy; 2026 — PT SAMRIFA STUDIO TEKNOLOGI (samrifa.com)</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Database of Full Real-Life Technical Articles
+        const articlesDatabase = {
+            'emqx-express-iot': {
+                badge: 'IoT Telemetry & Backend',
+                date: 'Maret 2026',
+                readtime: '7 Menit Baca',
+                title: 'Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js',
+                metaDesc: 'Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <50ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL.',
+                content: `
+                    <p>Dalam ekosistem <em>Smart Home</em> dan industri IoT modern, tantangan terbesar backend engineer bukanlah sekadar menyimpan data, melainkan **bagaimana menangani ribuan paket pesan telemetri sensor secara simultan tanpa latency dan tanpa kehilangan data (zero packet loss)**.</p>
+                    
+                    <p>Pengalaman ini saya dapatkan secara langsung dalam pengembangan proyek <strong>NetraHome</strong>. Pada sistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (suhu, kelembaban, status sakelar, hingga pengawasan daya) secara kontinu setiap detik. Untuk mengatasi hal ini, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
+
+                    <h2>1. Mengapa Memilih EMQX MQTT Broker?</h2>
+                    <p>Dibandingkan broker tradisional seperti Mosquitto biasa atau HTTP polling biasa, EMQX menawarkan beberapa keunggulan kritis:</p>
+                    <ul>
+                        <li><strong>High Concurrency:</strong> Mampu menangani hingga jutaan koneksi MQTT bersamaan menggunakan arsitektur Erlang/OTP.</li>
+                        <li><strong>Rule Engine Bawaan:</strong> Memungkinkan data MQTT diteruskan langsung ke database PostgreSQL atau webhook REST API tanpa menambah beban CPU backend.</li>
+                        <li><strong>Security & Access Control (ACL):</strong> Dukungan native enkripsi TLS/SSL port 8883 dan otentikasi token JWT/PostgreSQL untuk setiap <em>Client ID</em> sensor.</li>
+                    </ul>
+
+                    <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
+                    <p>Arsitektur aliran data telemetri dirancang secara bertingkat untuk menjamin kecepatan balasan sub-50ms:</p>
+
+                    <div class="my-6 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 font-mono text-xs">
+                        [Perangkat Sensor NetraHome] <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ (MQTT via MQTTS Port 8883 Enkripsi TLS)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+                        [EMQX Broker Cluster] ──(Rule Engine Webhook)──► [Express.js Backend API]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+                        [WebSockets Gateway] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PostgreSQL Time-Series Log]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─► Dashboard Web (Vue.js)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─► Aplikasi Mobile (Flutter)
+                    </div>
+
+                    <h2>3. Implementasi Kode Subscriber pada Express.js</h2>
+                    <p>Berikut adalah potongan skrip Node.js (Express.js) yang terhubung ke EMQX Broker untuk melakukan verifikasi payload telemetry:</p>
+
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>const mqtt = require('mqtt');
+const client = mqtt.connect('mqtts://broker.samrifa.com:8883', {
+    clientId: 'netrahome_backend_service',
+    username: process.env.MQTT_USER,
+    password: process.env.MQTT_PASSWORD,
+    rejectUnauthorized: true
+});
+
+client.on('connect', () => {
+    console.log('Terhubung ke EMQX MQTT Broker NetraHome');
+    client.subscribe('netrahome/devices/+/telemetry', { qos: 1 });
+});
+
+client.on('message', async (topic, payload) => {
+    try {
+        const data = JSON.parse(payload.toString());
+        // Ingesti data sensor ke database time-series PostgreSQL
+        await saveTelemetryToDatabase(topic, data);
+        // Broadcast via WebSockets ke Vue.js Dashboard & Flutter Mobile
+        broadcastToClients(topic, data);
+    } catch (err) {
+        console.error('Error parsing MQTT payload:', err);
+    }
+});</code></pre>
+
+                    <h2>4. Kesimpulan & Hasil Pengujian</h2>
+                    <p>Dengan menerapkan arsitektur ini pada proyek NetraHome, pengujian beban (*stress test*) membuktikan sistem mampu memproses lebih dari 5.000 payload telemetri per detik dengan rata-rata waktu respon **di bawah 45 milidetik**. Integrasi ini memberikan pengalaman pengguna yang sangat mulus baik di Web Dashboard berbasis Vue.js maupun Aplikasi Mobile Flutter.</p>
+                `
+            },
+            'sentinelone-xdr-vps-hardening': {
+                badge: 'Cybersecurity & Security Engineering',
+                date: 'Agustus 2025',
+                readtime: '8 Menit Baca',
+                title: 'Hardening Server Linux VPS dan Proteksi Endpoint Menggunakan SentinelOne XDR',
+                metaDesc: 'Panduan keamanan server Linux VPS: Langkah praktis pengamanan SSH, UFW firewall, penutupan port rentan, serta pengintegrasian SentinelOne XDR agent untuk pencegahan malware zero-day.',
+                content: `
+                    <p>Keamanan infrastruktur server backend seringkali menjadi titik lemah yang diabaikan. Sebagai **Security Engineer**, salah satu tugas utama saya adalah memastikan server produksi Linux VPS yang menjalankan API bisnis tetap aman dari ancaman *brute-force attacks*, *unauthorized access*, hingga *zero-day malware exploits*.</p>
+
+                    <p>Artikel dokumentasi ini menguraikan langkah-langkah praktis **Linux VPS Hardening** yang dikombinasikan dengan proteksi tingkat lanjut menggunakan <strong>SentinelOne XDR (Extended Detection and Response)</strong>.</p>
+
+                    <h2>1. Langkah Dasar Linux Server Hardening</h2>
+                    <p>Sebelum menginstall agent XDR, langkah pertama adalah memperketat pintu masuk server OS Ubuntu / Debian Server:</p>
+                    
+                    <h3>A. Pengamanan SSH Daemon (`/etc/ssh/sshd_config`)</h3>
+                    <ul>
+                        <li>Mengganti Port SSH standar (Port 22) ke port custom tinggi (misal Port 2289).</li>
+                        <li>Mematikan login `root` langsung: <code>PermitRootLogin no</code>.</li>
+                        <li>Mematikan otentikasi password & mewajibkan SSH Key Pair: <code>PasswordAuthentication no</code>.</li>
+                    </ul>
+
+                    <h3>B. Konfigurasi UFW Firewall (Uncomplicated Firewall)</h3>
+                    <p>Hanya membuka port yang benar-benar dibutuhkan oleh service aplikasi:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 2289/tcp comment 'Custom SSH Port'
+sudo ufw allow 80/tcp comment 'HTTP Web Server'
+sudo ufw allow 443/tcp comment 'HTTPS Web Server'
+sudo ufw allow 8883/tcp comment 'EMQX MQTT TLS'
+sudo ufw enable</code></pre>
+
+                    <h2>2. Deploy SentinelOne XDR Agent di Server Linux</h2>
+                    <p><strong>SentinelOne XDR</strong> bekerja menggunakan AI terintegrasi pada level kernel (EBPF / Kernel Modules) tanpa mengabaikan performa CPU server. Keunggulan utamanya adalah kemampuan **Automated Rollback** dan visibilitas proses secara *real-time*.</p>
+
+                    <p>Langkah instalasi agent SentinelOne pada server VPS Linux backend:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code># 1. Download package agent resmi SentinelOne (.deb / .rpm)
+sudo dpkg -i SentinelAgent_linux_v23_2.deb
+
+# 2. Registrasikan site key token ke SentinelOne Management Console
+sudo /opt/sentinelone/bin/sentinelctl management token set "YOUR_SENTINELONE_SITE_TOKEN"
+
+# 3. Jalankan service agent
+sudo /opt/sentinelone/bin/sentinelctl control start
+
+# 4. Verifikasi status proteksi
+sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
+
+                    <h2>3. Monitoring Telemetry Ancaman & Incident Response</h2>
+                    <p>Setelah SentinelOne XDR aktif, seluruh aktivitas mengeksekusi file binary, modifikasi skrip `/tmp`, atau koneksi outbound yang mencurigakan akan langsung di-analisis oleh SentinelOne Engine. Jika terjadi percobaan eksploitasi, SentinelOne secara otomatis memutus koneksi isolasi jaringan (*network isolation*) dan mengembalikan file sistem ke kondisi semula (*rollback*).</p>
+
+                    <h2>4. Ringkasan Checklist Keamanan</h2>
+                    <p>Kombinasi antara **Linux Hardening** dan **SentinelOne XDR** menjamin infrastruktur server backend PT SAMRIFA STUDIO TEKNOLOGI dan proyek klien beroperasi dengan jaminan uptime 99.9% tanpa risiko kebocoran data.</p>
+                `
+            },
+            'express-laravel-postgresql-performance': {
+                badge: 'Backend Engineering & Database',
+                date: 'Januari 2025',
+                readtime: '6 Menit Baca',
+                title: 'Desain RESTful API Modular Berperforma Tinggi dengan PostgreSQL & Indexing',
+                metaDesc: 'Teknik optimasi query SQL dan arsitektur backend Express.js & PHP Laravel: Menerapkan prinsip SOLID, Clean Code MVC, serta teknik B-Tree Composite Indexing untuk response time sub-100ms.',
+                content: `
+                    <p>Ketika basis data aplikasi bertumbuh dari ribuan menjadi jutaan baris data, query SQL yang tidak ter-indeks dengan baik akan menyebabkan kemacetan (*bottleneck*) sistem. Response time API yang mulanya 50ms bisa membengkak menjadi 3 hingga 5 detik.</p>
+
+                    <p>Sebagai **Backend Engineer**, saya menerapkan standar arsitektur RESTful API modular yang bersih (*Clean Code / SOLID*) dikombinasikan dengan teknik **PostgreSQL Database Indexing** untuk memastikan kueri balasan tetap konsisten di bawah 100 milidetik.</p>
+
+                    <h2>1. Penerapan Prinsip SOLID pada Express.js & Laravel</h2>
+                    <p>Memisahkan kode menjadi lapisan terisolasi (Controller -> Service Layer -> Repository Layer -> Database Model) memastikan aplikasi mudah di-maintain dan di-uji (*unit testing*):</p>
+                    <ul>
+                        <li><strong>Single Responsibility Principle (SRP):</strong> Controller hanya bertugas menangani HTTP Request/Response; logika bisnis berada di Service Class.</li>
+                        <li><strong>Dependency Inversion:</strong> Menggunakan Interface Repository agar jenis database (PostgreSQL/MySQL) bisa diganti tanpa mengubah logika bisnis.</li>
+                    </ul>
+
+                    <h2>2. Optimasi Database PostgreSQL dengan B-Tree & Composite Indexing</h2>
+                    <p>Misalkan kita memiliki tabel `device_telemetry_logs` dengan jutaan baris data. Tanpa indeks, query pencarian lokasi dan tanggal akan melakukan <em>Full Table Scan</em>.</p>
+
+                    <h3>A. Query Tanpa Indeks (Lambat ~ 1,450 ms)</h3>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>SELECT * FROM device_telemetry_logs 
+WHERE device_id = 'DEV-9921' 
+  AND created_at >= '2026-03-01' 
+ORDER BY created_at DESC LIMIT 50;</code></pre>
+
+                    <h3>B. Pembuatan Composite Indexing di PostgreSQL</h3>
+                    <p>Kita buat indeks gabungan B-Tree pada kolom `device_id` dan `created_at`:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4"><code>CREATE INDEX idx_telemetry_device_created 
+ON device_telemetry_logs (device_id, created_at DESC);</code></pre>
+
+                    <h2>3. Hasil Benchmark Performa</h2>
+                    <p>Setelah indeks diterapkan pada PostgreSQL produksi:</p>
+                    <ul>
+                        <li><strong>Waktu Eksekusi Query:</strong> Turun dari **1,450 ms** menjadi hanya **8 ms** (Peningkatan kecepatan > 180x lipat!).</li>
+                        <li><strong>Response Time REST API:</strong> Balasan JSON API stabil di angka **42 ms**.</li>
+                        <li><strong>Penggunaan CPU Server:</strong> Beban CPU server VPS turun dari 85% menjadi di bawah 12%.</li>
+                    </ul>
+
+                    <h2>4. Kesimpulan</h2>
+                    <p>Pengarsitekturan kode backend yang modular serta pemahaman mendalam tentang struktur indeks database PostgreSQL/MySQL adalah kunci utama dalam membangun produk digital skala besar yang andal dan cepat.</p>
+                `
+            }
+        };
+
+        $(document).ready(function () {
+            // Check Theme
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'dark') {
+                $('html').addClass('dark');
+            } else {
+                $('html').removeClass('dark');
+            }
+
+            // Get article ID from URL query ?id=...
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id') || 'emqx-express-iot';
+
+            const article = articlesDatabase[articleId] || articlesDatabase['emqx-express-iot'];
+
+            if (article) {
+                document.title = `${article.title} - Salman Mustapa, S.Kom.`;
+                $('#article-page-title').text(`${article.title} - Salman Mustapa, S.Kom.`);
+                $('#article-meta-desc').attr('content', article.metaDesc);
+                $('#article-og-title').attr('content', article.title);
+                $('#article-og-desc').attr('content', article.metaDesc);
+
+                $('#article-badge').text(article.badge);
+                $('#article-date').text(article.date);
+                $('#article-readtime').text(article.readtime);
+                $('#article-title').text(article.title);
+                $('#article-body').html(article.content);
+            }
+
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
