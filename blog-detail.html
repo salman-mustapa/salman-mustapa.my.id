@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="article-page-title">Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js - Salman Mustapa, S.Kom.</title>
+    <title id="article-page-title">Catatan Teknikal - Salman Mustapa, S.Kom.</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" id="article-meta-desc"
-        content="Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <45ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL oleh Salman Mustapa, S.Kom.">
+        content="Dokumentasi dan artikel teknikal backend engineering, IoT telemetry EMQX, SentinelOne XDR security, dan performa database oleh Salman Mustapa, S.Kom.">
     <meta name="keywords"
-        content="IoT Telemetry, EMQX MQTT Broker, Express.js, Node.js, NetraHome, Vue.js, Flutter, Real-Time Sensor, PostgreSQL, Salman Mustapa, Gorontalo">
+        content="Backend Engineering, IoT Telemetry, EMQX MQTT, SentinelOne XDR, Linux VPS Hardening, PostgreSQL Indexing, Express.js, Laravel, Salman Mustapa, Gorontalo">
     <meta name="author" content="Salman Mustapa, S.Kom.">
 
     <!-- Agentic Browsing & AI Meta -->
-    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation - EMQX MQTT & Express.js IoT Telemetry">
+    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation - EMQX MQTT, SentinelOne XDR, & PostgreSQL Performance">
     <link rel="alternate" type="text/markdown" title="LLM Summary" href="https://salmanmustapa.my.id/llms.txt">
     <link rel="alternate" type="text/markdown" title="LLM Full Context" href="https://salmanmustapa.my.id/llms-full.txt">
 
@@ -22,8 +22,8 @@
     <script defer src="https://umami.samrifa.com/script.js" data-website-id="3cfdebc9-2a4f-4a12-880e-67e85629038b"></script>
 
     <!-- Open Graph -->
-    <meta property="og:title" id="article-og-title" content="Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js">
-    <meta property="og:description" id="article-og-desc" content="Studi kasus nyata proyek NetraHome: Ingesti data telemetri sensor IoT real-time berlatensi rendah.">
+    <meta property="og:title" id="article-og-title" content="Catatan Teknikal - Salman Mustapa, S.Kom.">
+    <meta property="og:description" id="article-og-desc" content="Dokumentasi dan insight teknikal backend engineering & security.">
     <meta property="og:image" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
     <meta property="og:type" content="article">
 
@@ -108,7 +108,7 @@
 
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-200 dark:border-white/5 bg-white/80 dark:bg-zinc-950/80">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html#blog" class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 transition-colors">
@@ -142,22 +142,22 @@
             </div>
         </div>
 
-        <!-- Article Content Body (With Rich Default Content HTML) -->
+        <!-- Article Content Body (Cleaned HTML without any ** or * raw syntax) -->
         <article id="article-body" class="article-content text-zinc-700 dark:text-zinc-300 text-base">
-            <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (*Internet of Things*) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan **bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)**.</p>
+            <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (<em>Internet of Things</em>) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan <strong>bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)</strong>.</p>
 
             <p>Pengalaman teknikal ini saya dapatkan secara langsung dalam merancang dan membangun infrastruktur backend proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada ekosistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (seperti suhu ruangan, kelembaban, status sakelar pintar, pengawasan konsumsi daya listrik, hingga kuota pemakaian AI token) secara kontinu setiap detik.</p>
 
             <p>Untuk memproses arus data telemetri yang intensif ini tanpa membebani server backend, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
 
             <h2>1. Mengapa Menggunakan Protokol MQTT & EMQX Broker?</h2>
-            <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan *overhead header* 1KB+ per paket serta teknik *polling* yang boros daya dan memicu latensi tinggi, prokol **MQTT (Message Queuing Telemetry Transport)** beroperasi menggunakan model *Publish/Subscribe* yang sangat efisien dengan ukuran header hanya **2 Byte**.</p>
+            <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan <em>overhead header</em> 1KB+ per paket serta teknik <em>polling</em> yang boros daya dan memicu latensi tinggi, protokol <strong>MQTT (Message Queuing Telemetry Transport)</strong> beroperasi menggunakan model <em>Publish/Subscribe</em> yang sangat efisien dengan ukuran header hanya <strong>2 Byte</strong>.</p>
 
             <p>Di antara berbagai pilihan broker MQTT (seperti Mosquitto atau VernEMQ), kami memilih <strong>EMQX Broker</strong> untuk proyek NetraHome karena beberapa alasan kunci:</p>
             <ul>
-                <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT simultan secara efisien.</li>
-                <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode *middleman* yang kompleks.</li>
-                <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (*Access Control List*) per <em>Client ID</em> sensor.</li>
+                <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT bersamaan secara efisien.</li>
+                <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode <em>middleman</em> yang kompleks.</li>
+                <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (<em>Access Control List</em>) per <em>Client ID</em> sensor.</li>
             </ul>
 
             <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
@@ -223,18 +223,17 @@ client.on('message', async (topic, payload) => {
 });</code></pre>
 
             <h2>4. Integrasi Multi-Platform (Vue.js Web & Flutter Mobile)</h2>
-            <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via **WebSockets Gateway**:
+            <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via <strong>WebSockets Gateway</strong>:</p>
             <ul>
                 <li><strong>Dashboard Web (Vue.js):</strong> Menampilkan grafik tren suhu, kelembaban, dan konsumsi daya secara real-time menggunakan ECharts / Chart.js tanpa perlu melakukan refresh halaman.</li>
                 <li><strong>Aplikasi Mobile (Flutter):</strong> Menerima push notifikasi instan jika sensor mendeteksi anomali suhu atau kelebihan batas konsumsi daya listrik.</li>
             </ul>
-            </p>
 
             <h2>5. Benchmark Latensi & Kesimpulan</h2>
-            <p>Dengan mengkombinasikan keunggulan **EMQX Broker**, **Express.js**, dan database **PostgreSQL**, pengujian beban (*stress testing*) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
+            <p>Dengan mengkombinasikan keunggulan <strong>EMQX Broker</strong>, <strong>Express.js</strong>, dan database <strong>PostgreSQL</strong>, pengujian beban (<em>stress testing</em>) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
             <ul>
-                <li><strong>Throughput:</strong> Berhasil memproses lebih dari **5.000 payload telemetri per detik**.</li>
-                <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka **38 ms – 45 ms**.</li>
+                <li><strong>Throughput:</strong> Berhasil memproses lebih dari <strong>5.000 payload telemetri per detik</strong>.</li>
+                <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka <strong>38 ms – 45 ms</strong>.</li>
                 <li><strong>Penggunaan Resource Server:</strong> Beban CPU VPS tetap efisien di bawah 15%.</li>
             </ul>
 
@@ -259,7 +258,7 @@ client.on('message', async (topic, payload) => {
         </div>
     </main>
 
-    <!-- Enhanced Unified Footer (Matching index.html & detail.html) -->
+    <!-- Enhanced Unified Footer -->
     <footer class="pb-24 pt-16 px-8 border-t border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950/60 backdrop-blur-md transition-colors duration-300">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-zinc-200 dark:border-white/5">
             <!-- Brand Info -->
@@ -320,7 +319,7 @@ client.on('message', async (topic, payload) => {
         </div>
     </footer>
 
-    <!-- Floating WhatsApp FAB with Official Logo & Hover-Only Tooltip -->
+    <!-- Floating WhatsApp FAB -->
     <a href="https://wa.me/6282154488769?text=Halo%20Salman%2c%20saya%20tertarik%20dengan%20profil%20Anda%20dan%20ingin%20berdiskusi%20mengenai%20peluang%20kerja%20sama."
         target="_blank" aria-label="WhatsApp Contact" class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 wa-fab group">
         <div class="flex items-center gap-3">
@@ -342,7 +341,7 @@ client.on('message', async (topic, payload) => {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Database of Real-Life Comprehensive Articles
+        // Database of Real-Life Comprehensive Articles (Cleaned HTML without raw ** or *)
         const articlesDatabase = {
             'emqx-express-iot': {
                 badge: 'IoT Telemetry & Backend',
@@ -351,20 +350,20 @@ client.on('message', async (topic, payload) => {
                 title: 'Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js',
                 metaDesc: 'Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <50ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL.',
                 content: `
-                    <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (*Internet of Things*) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan **bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)**.</p>
+                    <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (<em>Internet of Things</em>) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan <strong>bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)</strong>.</p>
 
                     <p>Pengalaman teknikal ini saya dapatkan secara langsung dalam merancang dan membangun infrastruktur backend proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada ekosistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (seperti suhu ruangan, kelembaban, status sakelar pintar, pengawasan konsumsi daya listrik, hingga kuota pemakaian AI token) secara kontinu setiap detik.</p>
 
                     <p>Untuk memproses arus data telemetri yang intensif ini tanpa membebani server backend, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
 
                     <h2>1. Mengapa Menggunakan Protokol MQTT & EMQX Broker?</h2>
-                    <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan *overhead header* 1KB+ per paket serta teknik *polling* yang boros daya dan memicu latensi tinggi, prokol **MQTT (Message Queuing Telemetry Transport)** beroperasi menggunakan model *Publish/Subscribe* yang sangat efisien dengan ukuran header hanya **2 Byte**.</p>
+                    <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan <em>overhead header</em> 1KB+ per paket serta teknik <em>polling</em> yang boros daya dan memicu latensi tinggi, protokol <strong>MQTT (Message Queuing Telemetry Transport)</strong> beroperasi menggunakan model <em>Publish/Subscribe</em> yang sangat efisien dengan ukuran header hanya <strong>2 Byte</strong>.</p>
 
                     <p>Di antara berbagai pilihan broker MQTT (seperti Mosquitto atau VernEMQ), kami memilih <strong>EMQX Broker</strong> untuk proyek NetraHome karena beberapa alasan kunci:</p>
                     <ul>
                         <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT bersamaan secara efisien.</li>
-                        <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode *middleman* yang kompleks.</li>
-                        <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (*Access Control List*) per <em>Client ID</em> sensor.</li>
+                        <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode <em>middleman</em> yang kompleks.</li>
+                        <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (<em>Access Control List</em>) per <em>Client ID</em> sensor.</li>
                     </ul>
 
                     <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
@@ -430,18 +429,17 @@ client.on('message', async (topic, payload) => {
 });</code></pre>
 
                     <h2>4. Integrasi Multi-Platform (Vue.js Web & Flutter Mobile)</h2>
-                    <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via **WebSockets Gateway**:
+                    <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via <strong>WebSockets Gateway</strong>:</p>
                     <ul>
                         <li><strong>Dashboard Web (Vue.js):</strong> Menampilkan grafik tren suhu, kelembaban, dan konsumsi daya secara real-time menggunakan ECharts / Chart.js tanpa perlu melakukan refresh halaman.</li>
                         <li><strong>Aplikasi Mobile (Flutter):</strong> Menerima push notifikasi instan jika sensor mendeteksi anomali suhu atau kelebihan batas konsumsi daya listrik.</li>
                     </ul>
-                    </p>
 
                     <h2>5. Benchmark Latensi & Kesimpulan</h2>
-                    <p>Dengan mengkombinasikan keunggulan **EMQX Broker**, **Express.js**, dan database **PostgreSQL**, pengujian beban (*stress testing*) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
+                    <p>Dengan mengkombinasikan keunggulan <strong>EMQX Broker</strong>, <strong>Express.js</strong>, dan database <strong>PostgreSQL</strong>, pengujian beban (<em>stress testing</em>) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
                     <ul>
-                        <li><strong>Throughput:</strong> Berhasil memproses lebih dari **5.000 payload telemetri per detik**.</li>
-                        <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka **38 ms – 45 ms**.</li>
+                        <li><strong>Throughput:</strong> Berhasil memproses lebih dari <strong>5.000 payload telemetri per detik</strong>.</li>
+                        <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka <strong>38 ms – 45 ms</strong>.</li>
                         <li><strong>Penggunaan Resource Server:</strong> Beban CPU VPS tetap efisien di bawah 15%.</li>
                     </ul>
 
@@ -451,55 +449,103 @@ client.on('message', async (topic, payload) => {
             'sentinelone-xdr-vps-hardening': {
                 badge: 'Cybersecurity & Security Engineering',
                 date: 'Agustus 2025',
-                readtime: '9 Menit Baca',
+                readtime: '10 Menit Baca',
                 title: 'Hardening Server Linux VPS dan Proteksi Endpoint Menggunakan SentinelOne XDR',
-                metaDesc: 'Panduan keamanan server Linux VPS: Langkah praktis pengamanan SSH, UFW firewall, penutupan port rentan, serta pengintegrasian SentinelOne XDR agent untuk pencegahan malware zero-day.',
+                metaDesc: 'Panduan lengkap keamanan server Linux VPS: Langkah praktis pengamanan SSH, UFW firewall, penutupan port rentan, serta pengintegrasian SentinelOne XDR agent untuk pencegahan malware zero-day oleh Security Engineer Salman Mustapa, S.Kom.',
                 content: `
-                    <p>Keamanan infrastruktur server backend seringkali menjadi titik lemah yang diabaikan. Sebagai **Security Engineer**, salah satu tugas utama saya sejak Agustus 2025 adalah memastikan server produksi Linux VPS yang menjalankan API bisnis tetap aman dari ancaman *brute-force attacks*, *unauthorized access*, hingga *zero-day malware exploits*.</p>
+                    <p>Keamanan infrastruktur server backend sering kali menjadi titik lemah yang paling rentan terhadap serangan siber. Sebagai <strong>Security Engineer</strong> yang mengelola infrastruktur server di <a href="https://samrifa.com" target="_blank" class="text-emerald-500 font-semibold hover:underline">PT SAMRIFA STUDIO TEKNOLOGI</a>, salah satu tanggung jawab utama saya sejak Agustus 2025 adalah memastikan seluruh server produksi Linux VPS yang menjalankan API bisnis, database, dan broker telemetri terlindungi 100% dari ancaman <em>brute-force attacks</em>, <em>unauthorized access</em>, <em>ransomware</em>, hingga <em>zero-day malware exploits</em>.</p>
 
-                    <p>Artikel dokumentasi ini menguraikan langkah-langkah praktis **Linux VPS Hardening** yang dikombinasikan dengan proteksi tingkat lanjut menggunakan <strong>SentinelOne XDR (Extended Detection and Response)</strong>.</p>
+                    <p>Artikel panduan teknikal ini menyajikan dokumentasi lengkap mengenai <strong>Panduan Linux VPS Hardening</strong> yang dikombinasikan dengan proteksi tingkat lanjut menggunakan <strong>SentinelOne XDR (Extended Detection and Response)</strong>.</p>
 
-                    <h2>1. Langkah Dasar Linux Server Hardening</h2>
-                    <p>Sebelum menginstall agent XDR, langkah pertama adalah memperketat pintu masuk server OS Ubuntu / Debian Server:</p>
-                    
-                    <h3>A. Pengamanan SSH Daemon (`/etc/ssh/sshd_config`)</h3>
+                    <h2>1. Mengapa Server VPS Wajib Di-Hardening?</h2>
+                    <p>Server Linux VPS baru (seperti OS Ubuntu Server / Debian) secara bawaan memiliki konfigurasi default yang sangat terbuka. Hacker dan bot skrip otomatis di seluruh dunia secara konstan melakukan <em>scanning</em> port 22 (SSH) dan mencoba jutaan kombinasi username & password per jam.</p>
+
+                    <p>Tanpa langkah hardening dan sistem proteksi XDR, risiko yang dihadapi oleh pemilik server sangat fatal:</p>
                     <ul>
-                        <li>Mengganti Port SSH standar (Port 22) ke port custom tinggi (misal Port 2289).</li>
-                        <li>Mematikan login `root` langsung: <code>PermitRootLogin no</code>.</li>
-                        <li>Mematikan otentikasi password & mewajibkan SSH Key Pair: <code>PasswordAuthentication no</code>.</li>
+                        <li><strong>Kebocoran Data Kredensial:</strong> Pencurian API Key, DB Password, dan data privasi pengguna.</li>
+                        <li><strong>Injeksi Ransomware:</strong> File database dienkripsi oleh penyerang dan meminta tebusan bitcoin.</li>
+                        <li><strong>Resource Hijacking (Cryptojacking):</strong> Server dijadikan botnet untuk menambang crypto sehingga CPU terbebani 100%.</li>
                     </ul>
 
-                    <h3>B. Konfigurasi UFW Firewall (Uncomplicated Firewall)</h3>
-                    <p>Hanya membuka port yang benar-benar dibutuhkan oleh service aplikasi:</p>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>sudo ufw default deny incoming
+                    <h2>2. Tahap 1: Checklist Praktis Linux VPS Server Hardening</h2>
+
+                    <h3>A. Pengamanan Daemon SSH (<code>/etc/ssh/sshd_config</code>)</h3>
+                    <p>Langkah paling krusial adalah memperketat pintu utama akses administrator server:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code># Edit file konfigurasi SSH
+sudo nano /etc/ssh/sshd_config
+
+# 1. Ubah Port SSH standar (Port 22) ke Port Custom Tinggi
+Port 2289
+
+# 2. Matikan login user root langsung
+PermitRootLogin no
+
+# 3. Matikan otentikasi password & wajibkan SSH Key Pair
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+# Simpan dan restart daemon SSH
+sudo systemctl restart sshd</code></pre>
+
+                    <h3>B. Pengamanan Firewall UFW (Uncomplicated Firewall)</h3>
+                    <p>Terapkan prinsip <em>Default Deny Incoming Policy</em>. Hanya izinkan port yang benar-benar dibutuhkan oleh aplikasi:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code># Blokir seluruh akses masuk secara bawaan
+sudo ufw default deny incoming
 sudo ufw default allow outgoing
-sudo ufw allow 2289/tcp comment 'Custom SSH Port'
-sudo ufw allow 80/tcp comment 'HTTP Web Server'
-sudo ufw allow 443/tcp comment 'HTTPS Web Server'
-sudo ufw allow 8883/tcp comment 'EMQX MQTT TLS'
+
+# Izinkan port custom SSH
+sudo ufw allow 2289/tcp comment 'Custom SSH Administrator Port'
+
+# Izinkan port Web Server HTTP & HTTPS
+sudo ufw allow 80/tcp comment 'HTTP Web'
+sudo ufw allow 443/tcp comment 'HTTPS Web'
+
+# Izinkan port MQTTS Telemetry IoT
+sudo ufw allow 8883/tcp comment 'EMQX MQTTS TLS Port'
+
+# Aktifkan Firewall
 sudo ufw enable</code></pre>
 
-                    <h2>2. Deploy SentinelOne XDR Agent di Server Linux</h2>
-                    <p><strong>SentinelOne XDR</strong> bekerja menggunakan AI terintegrasi pada level kernel (EBPF / Kernel Modules) tanpa mengabaikan performa CPU server. Keunggulan utamanya adalah kemampuan **Automated Rollback** dan visibilitas proses secara *real-time*.</p>
+                    <h3>C. Proteksi Brute-Force dengan Fail2ban Daemon</h3>
+                    <p>Instal <strong>Fail2ban</strong> untuk memblokir IP penyerang secara otomatis selama 24 jam jika gagal melakukan login SSH sebanyak 3 kali:</p>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>sudo apt install fail2ban -y
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban</code></pre>
 
-                    <p>Langkah instalasi agent SentinelOne pada server VPS Linux backend:</p>
-                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code># 1. Download package agent resmi SentinelOne (.deb / .rpm)
-sudo dpkg -i SentinelAgent_linux_v23_2.deb
+                    <h2>3. Tahap 2: Cara Penggunaan & Deploy Agent SentinelOne XDR</h2>
+                    <p>Meskipun Linux Hardening dasar telah diterapkan, serangan modern sering kali menggunakan skrip <em>fileless malware</em> yang menyusup lewat celah aplikasi web. Di sinilah peran <strong>SentinelOne XDR</strong> beraksi.</p>
 
-# 2. Registrasikan site key token ke SentinelOne Management Console
+                    <p><strong>SentinelOne XDR</strong> bekerja pada level kernel Linux (menggunakan modul <em>eBPF / Kernel Extensions</em>) untuk mengawasi seluruh eksekusi proses secara real-time menggunakan kecerdasan buatan (AI Engine) tanpa membebani performa CPU server.</p>
+
+                    <h3>Langkah Instalasi Agent SentinelOne pada Server VPS Linux:</h3>
+                    <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code># 1. Download package agent resmi SentinelOne Linux (.deb)
+sudo dpkg -i SentinelAgent_linux_v23_2_amd64.deb
+
+# 2. Registrasikan token Site Key dari SentinelOne Management Console
 sudo /opt/sentinelone/bin/sentinelctl management token set "YOUR_SENTINELONE_SITE_TOKEN"
 
-# 3. Jalankan service agent
+# 3. Jalankan service Agent SentinelOne
 sudo /opt/sentinelone/bin/sentinelctl control start
 
-# 4. Verifikasi status proteksi
+# 4. Verifikasi status proteksi aktif
 sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
 
-                    <h2>3. Monitoring Telemetry Ancaman & Incident Response</h2>
-                    <p>Setelah SentinelOne XDR aktif, seluruh aktivitas mengeksekusi file binary, modifikasi skrip `/tmp`, atau koneksi outbound yang mencurigakan akan langsung di-analisis oleh SentinelOne Engine. Jika terjadi percobaan eksploitasi, SentinelOne secara otomatis memutus koneksi isolasi jaringan (*network isolation*) dan mengembalikan file sistem ke kondisi semula (*rollback*).</p>
+                    <h2>4. Tahap 3: Fitur Unggulan XDR & Incident Response Playbook</h2>
+                    <p>Setelah SentinelOne XDR terpasang, sistem memiliki 3 kemampuan proteksi otomatis kelas militer:</p>
+                    
+                    <ul>
+                        <li><strong>Automated Detection & Behavioral AI:</strong> Jika ada skrip berbahaya yang mencoba mengeksekusi *reverse shell* di folder sementara (seperti `/tmp` atau `/var/tmp`), SentinelOne AI langsung mendeteksinya sebagai ancaman tinggi.</li>
+                        <li><strong>Automated Network Isolation:</strong> SentinelOne secara instan mengisolasi IP server yang terinfeksi dari jaringan publik agar malware tidak menyebar ke server database lainnya, namun koneksi agen administrator tetap terjaga.</li>
+                        <li><strong>Automated Rollback to Clean State:</strong> SentinelOne menyimpan <em>Shadow Snapshots</em> kernel. Jika ada file yang dirusak atau dienkripsi oleh ransomware, admin dapat menekan tombol <strong>Rollback</strong> di console untuk mengembalikan file sistem ke kondisi bersih sebelum serangan dalam hitungan detik.</li>
+                    </ul>
 
-                    <h2>4. Ringkasan Checklist Keamanan</h2>
-                    <p>Kombinasi antara **Linux Hardening** dan **SentinelOne XDR** menjamin infrastruktur server backend PT SAMRIFA STUDIO TEKNOLOGI dan proyek klien beroperasi dengan jaminan uptime 99.9% tanpa risiko kebocoran data.</p>
+                    <h2>5. Manfaat Penting & Nilai Strategis Bagi Perusahaan</h2>
+                    <p>Penerapan komprehensif **Linux Hardening + SentinelOne XDR** yang dipelopori oleh <strong>Salman Mustapa, S.Kom.</strong> di <strong>PT SAMRIFA STUDIO TEKNOLOGI</strong> memberikan nilai tambah yang luar biasa bagi klien dan bisnis:</p>
+                    <ol>
+                        <li><strong>Jaminan SLA Uptime 99.9%:</strong> Server backend terlindung dari kerentanan insiden keamanan yang menyebabkan *downtime* mendadak.</li>
+                        <li><strong>Kepatuhan Standar Industri:</strong> Memenuhi regulasi keamanan data privasi dan audit sistem informasi formal.</li>
+                        <li><strong>Ketenangan Pikiran (Peace of Mind):</strong> Pemilik produk dapat berfokus pada pertumbuhan bisnis tanpa cemas server diretas oleh pihak tidak bertanggung jawab.</li>
+                    </ol>
                 `
             },
             'express-laravel-postgresql-performance': {
@@ -509,19 +555,19 @@ sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
                 title: 'Desain RESTful API Modular Berperforma Tinggi dengan PostgreSQL & Indexing',
                 metaDesc: 'Teknik optimasi query SQL dan arsitektur backend Express.js & PHP Laravel: Menerapkan prinsip SOLID, Clean Code MVC, serta teknik B-Tree Composite Indexing untuk response time sub-100ms.',
                 content: `
-                    <p>Ketika basis data aplikasi bertumbuh dari ribuan menjadi jutaan baris data, query SQL yang tidak ter-indeks dengan baik akan menyebabkan kemacetan (*bottleneck*) sistem. Response time API yang mulanya 50ms bisa membengkak menjadi 3 hingga 5 detik.</p>
+                    <p>Ketika basis data aplikasi bertumbuh dari ribuan menjadi jutaan baris data, query SQL yang tidak ter-indeks dengan baik akan menyebabkan kemacetan (<em>bottleneck</em>) sistem. Response time API yang mulanya 50ms bisa membengkak menjadi 3 hingga 5 detik.</p>
 
-                    <p>Sebagai **Backend Engineer**, saya menerapkan standar arsitektur RESTful API modular yang bersih (*Clean Code / SOLID*) dikombinasikan dengan teknik **PostgreSQL Database Indexing** untuk memastikan kueri balasan tetap konsisten di bawah 100 milidetik.</p>
+                    <p>Sebagai <strong>Backend Engineer</strong>, saya menerapkan standar arsitektur RESTful API modular yang bersih (<em>Clean Code / SOLID</em>) dikombinasikan dengan teknik <strong>PostgreSQL Database Indexing</strong> untuk memastikan kueri balasan tetap konsisten di bawah 100 milidetik.</p>
 
                     <h2>1. Penerapan Prinsip SOLID pada Express.js & Laravel</h2>
-                    <p>Memisahkan kode menjadi lapisan terisolasi (Controller -> Service Layer -> Repository Layer -> Database Model) memastikan aplikasi mudah di-maintain dan di-uji (*unit testing*):</p>
+                    <p>Memisahkan kode menjadi lapisan terisolasi (Controller -> Service Layer -> Repository Layer -> Database Model) memastikan aplikasi mudah di-maintain dan di-uji (<em>unit testing</em>):</p>
                     <ul>
                         <li><strong>Single Responsibility Principle (SRP):</strong> Controller hanya bertugas menangani HTTP Request/Response; logika bisnis berada di Service Class.</li>
                         <li><strong>Dependency Inversion:</strong> Menggunakan Interface Repository agar jenis database (PostgreSQL/MySQL) bisa diganti tanpa mengubah logika bisnis.</li>
                     </ul>
 
                     <h2>2. Optimasi Database PostgreSQL dengan B-Tree & Composite Indexing</h2>
-                    <p>Misalkan kita memiliki tabel `device_telemetry_logs` dengan jutaan baris data. Tanpa indeks, query pencarian lokasi dan tanggal akan melakukan <em>Full Table Scan</em>.</p>
+                    <p>Misalkan kita memiliki tabel <code>device_telemetry_logs</code> dengan jutaan baris data. Tanpa indeks, query pencarian lokasi dan tanggal akan melakukan <em>Full Table Scan</em>.</p>
 
                     <h3>A. Query Tanpa Indeks (Lambat ~ 1,450 ms)</h3>
                     <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>SELECT * FROM device_telemetry_logs 
@@ -530,15 +576,15 @@ WHERE device_id = 'DEV-9921'
 ORDER BY created_at DESC LIMIT 50;</code></pre>
 
                     <h3>B. Pembuatan Composite Indexing di PostgreSQL</h3>
-                    <p>Kita buat indeks gabungan B-Tree pada kolom `device_id` dan `created_at`:</p>
+                    <p>Kita buat indeks gabungan B-Tree pada kolom <code>device_id</code> dan <code>created_at</code>:</p>
                     <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>CREATE INDEX idx_telemetry_device_created 
 ON device_telemetry_logs (device_id, created_at DESC);</code></pre>
 
                     <h2>3. Hasil Benchmark Performa</h2>
                     <p>Setelah indeks diterapkan pada PostgreSQL produksi:</p>
                     <ul>
-                        <li><strong>Waktu Eksekusi Query:</strong> Turun dari **1,450 ms** menjadi hanya **8 ms** (Peningkatan kecepatan > 180x lipat!).</li>
-                        <li><strong>Response Time REST API:</strong> Balasan JSON API stabil di angka **42 ms**.</li>
+                        <li><strong>Waktu Eksekusi Query:</strong> Turun dari <strong>1,450 ms</strong> menjadi hanya <strong>8 ms</strong> (Peningkatan kecepatan > 180x lipat!).</li>
+                        <li><strong>Response Time REST API:</strong> Balasan JSON API stabil di angka <strong>42 ms</strong>.</li>
                         <li><strong>Penggunaan CPU Server:</strong> Beban CPU server VPS turun dari 85% menjadi di bawah 12%.</li>
                     </ul>
 
