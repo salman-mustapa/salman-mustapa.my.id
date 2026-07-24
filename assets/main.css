@@ -3,343 +3,221 @@
 :root {
     --bg-main: #fafafa;
     --text-primary: #18181b;
-    --border-color: rgba(0, 0, 0, 0.05);
-    --card-bg: rgba(244, 244, 245, 0.8);
-    --card-bg-hover: rgba(244, 244, 245, 1);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --card-bg: #ffffff;
+    --card-bg-hover: #ffffff;
     --scroll-track: #f4f4f5;
     --scroll-thumb: #d4d4d8;
 }
 
-html.dark {
+.dark {
     --bg-main: #09090b;
-    --text-primary: #ffffff;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --card-bg: rgba(24, 24, 27, 0.5);
-    --card-bg-hover: rgba(39, 39, 42, 0.8);
-    --scroll-track: #09090b;
-    --scroll-thumb: #3f3f46;
+    --text-primary: #f4f4f5;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --card-bg: #18181b;
+    --card-bg-hover: #18181b;
+    --scroll-track: #18181b;
+    --scroll-thumb: #27272a;
 }
 
-.dark .text-zinc-900 {
-    color: #ffffff !important;
-}
-
-.dark .text-zinc-600 {
-    color: #d4d4d8 !important; /* Brighter secondary text */
-}
-
-.dark .text-zinc-500 {
-    color: #a1a1aa !important; /* Brighter tertiary text */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--scroll-track);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--scroll-thumb);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.2);
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: #a1a1aa;
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
-}
 
-/* Base Styles */
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Card Outline & Border Effects */
-.card-border {
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-border:hover {
-    border-color: rgba(161, 161, 170, 0.3);
-    background: var(--card-bg-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
-}
-
-.dark .card-border:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.6);
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-in {
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* Character/Avatar Animations */
 @keyframes breathing {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
 }
 
 .breathing-avatar {
-    animation: breathing 4s ease-in-out infinite;
+    animation: breathing 6s ease-in-out infinite;
 }
 
-.avatar-container:hover .breathing-avatar {
-    animation-play-state: paused;
-    transform: scale(1.05);
+/* Subtle Cards & Containers */
+.card-border {
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Timeline specific refinements for Dark Mode */
-.dark #experience-container .relative span,
-.dark #education-container .relative span {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: #18181b;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+.card-border:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
-/* GitHub Contribution Graph Styles */
+/* Request Proyek Button Override (Pure White Text & High Contrast) */
+.btn-request-proyek {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+
+.btn-request-proyek * {
+    color: #ffffff !important;
+}
+
+.btn-request-proyek:hover {
+    background-color: #059669 !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* Responsive Floating FAB WhatsApp Styling */
+.wa-fab {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wa-fab:hover {
+    transform: translateY(-4px);
+}
+
+/* GitHub Heatmap Grid Styling */
 .contribution-grid {
     display: grid;
-    grid-template-columns: repeat(53, 1fr);
+    grid-template-rows: repeat(7, 12px);
+    grid-auto-flow: column;
+    grid-auto-columns: 12px;
     gap: 3px;
-    width: 100%;
 }
 
 .contribution-day {
-    aspect-ratio: 1/1;
+    width: 12px;
+    height: 12px;
     border-radius: 2px;
-    background-color: var(--border-color);
-}
-
-.level-0 { background-color: #ebedf0; }
-.level-1 { background-color: #9be9a8; }
-.level-2 { background-color: #40c463; }
-.level-3 { background-color: #30a14e; }
-.level-4 { background-color: #216e39; }
-
-.dark .level-0 { background-color: #161b22; }
-.dark .level-1 { background-color: #0e4429; }
-.dark .level-2 { background-color: #006d32; }
-.dark .level-3 { background-color: #26a641; }
-.dark .level-4 { background-color: #39d353; }
-
-/* Contribution Graph Tooltip Hint */
-.contribution-day {
-    transition: transform 0.1s ease;
-    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .contribution-day:hover {
-    transform: scale(1.1);
-    outline: 1px solid var(--emerald-500, #10b981);
+    transform: scale(1.3);
     z-index: 10;
 }
 
-/* GitHub Activity Timeline Styling */
-.github-timeline {
-    position: relative;
-    padding-left: 24px;
-    margin-left: 8px;
+/* GitHub Dark & Light Mode Color Mapping */
+.contribution-day.level-0 {
+    background-color: #ebedf0;
 }
 
-.github-timeline::before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 10px;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--border-color);
-    padding-left: 20px;
-    margin-left: 10px;
-    border-left: 2px solid #e1e4e8;
+.dark .contribution-day.level-0 {
+    background-color: #161b22;
 }
 
-.dark .github-timeline {
-    border-left-color: rgba(255, 255, 255, 0.1);
+.contribution-day.level-1 {
+    background-color: #9be9a8;
 }
 
-.github-activity-month {
-    position: relative;
-    margin-bottom: 12px;
-    margin-top: 24px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #586069;
-    text-transform: capitalize;
+.dark .contribution-day.level-1 {
+    background-color: #0e4429;
+}
+
+.contribution-day.level-2 {
+    background-color: #40c463;
+}
+
+.dark .contribution-day.level-2 {
+    background-color: #006d32;
+}
+
+.contribution-day.level-3 {
+    background-color: #30a14e;
+}
+
+.dark .contribution-day.level-3 {
+    background-color: #26a641;
+}
+
+.contribution-day.level-4 {
+    background-color: #216e39;
+}
+
+.dark .contribution-day.level-4 {
+    background-color: #39d353;
+}
+
+.contribution-month-labels {
     display: flex;
-    align-items: center;
-}
-
-.dark .github-activity-month {
-    color: #8b949e;
-}
-
-.github-activity-month::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e1e4e8;
-    margin-left: 12px;
-}
-
-.dark .github-activity-month::after {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.github-activity-item {
-    position: relative;
-    padding-bottom: 24px;
-    display: flex;
-    gap: 12px;
-}
-
-.github-activity-node {
-    position: absolute;
-    left: -31px; /* 20px padding + 11px to center 20px node on 2px border */
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: #f6f8fa;
-    border: 2px solid #e1e4e8;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.dark .github-activity-node {
-    background: #0d1117;
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-.github-activity-node i {
-    width: 10px;
-    height: 10px;
-}
-
-.github-activity-group-header {
-    font-size: 14px;
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
+    padding-left: 28px;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #71717a;
+    width: 760px;
 }
 
-.dark .github-activity-group-header {
-    color: #c9d1d9;
+.contribution-body {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
 }
 
-.github-repo-list {
+.contribution-day-labels {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-}
-
-.github-repo-item {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 12px;
-}
-
-.github-repo-link {
-    color: #0366d6;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.github-repo-link:hover {
-    text-decoration: underline;
-}
-
-.dark .github-repo-link {
-    color: #58a6ff;
-}
-
-.github-commit-count {
-    color: #586069;
-    margin-left: 4px;
-}
-
-.dark .github-commit-count {
-    color: #8b949e;
-}
-
-.github-progress-container {
-    width: 120px;
-    height: 6px;
-    background: #ebedf0;
-    border-radius: 3px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.dark .github-progress-container {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.github-progress-fill {
-    height: 100%;
-    background: #2ea44f;
-    border-radius: 3px;
-}
-
-.github-repo-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #586069;
-}
-
-.dark .github-repo-meta {
-    color: #8b949e;
-}
-
-.github-lang-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.load-more-btn {
-    width: 100%;
-    padding: 8px;
-    margin-top: 16px;
-    background: transparent;
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    color: #0366d6;
-    font-size: 12px;
+    height: 102px;
+    font-size: 9px;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    color: #71717a;
+    padding-top: 2px;
 }
 
-.load-more-btn:hover {
-    background: #f6f8fa;
+/* Active Nav Link for App-style Mobile Bottom Bar */
+.mobile-nav-item.active-nav {
+    color: #10b981 !important;
+    font-weight: 700;
+    background-color: rgba(16, 185, 129, 0.08);
 }
 
-.dark .load-more-btn {
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #58a6ff;
-}
-
-.dark .load-more-btn:hover {
-    background: rgba(255, 255, 255, 0.05);
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .mobile-nav-item span {
+        font-size: 10px;
+    }
 }

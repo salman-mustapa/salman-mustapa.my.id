@@ -1,0 +1,36 @@
+# Salman Mustapa, S.Kom.
+> Backend Engineer, Security Engineer (SentinelOne XDR), & Founder of PT SAMRIFA STUDIO TEKNOLOGI
+
+## About
+Salman Mustapa is a professional Backend Engineer & Security Engineer based in Gorontalo, Indonesia. He holds a Bachelor's degree in Information Systems (S.Kom) from Universitas Negeri Gorontalo (GPA 3.43) and owns 3 registered Intellectual Property Copyright Patents (HAKI Kemenkumham RI, 50 years validity):
+1. HAKI 2021: SILET Diskominfo Bone Bolango (No. 000269388)
+2. HAKI 2023: Sistem Pengelolaan Sarana Prasarana Laboratorium FT UNG (No. 000480059)
+3. HAKI 2026: Calculators IMT / Antropometri Android & Web App (No. 001297659, https://antropometri.samrifa.com)
+
+He is the Founder & Lead Architect at **PT SAMRIFA STUDIO TEKNOLOGI** (Software Studio - PT Perorangan, website: https://samrifa.com).
+
+## Core Capabilities
+- **Backend Architecture**: Express.js (Node.js), PHP (Laravel Framework), RESTful API Design, Microservices, WebSockets, SOLID principles.
+- **IoT & Telemetry**: EMQX MQTT Broker deployment & scaling, Mosquitto, real-time sensor data ingestion pipelines, MQTT Auth & ACL, TLS/SSL encryption.
+- **Cybersecurity & XDR**: SentinelOne XDR deployment, Linux VPS server hardening, threat detection & incident response, network security.
+- **Database Systems**: PostgreSQL, MySQL, query optimization, time-series data logging, indexing.
+- **Integrations**: Supplying backend APIs & WebSocket endpoints for Vue.js Web Dashboards and Flutter Mobile Applications.
+
+## Work Experience & Key Projects
+- **PT SAMRIFA STUDIO TEKNOLOGI** (2024 – Present): Founder & Lead Architect (PT Perorangan). Digital solutions & web development studio (https://samrifa.com).
+- **NetraHome (Smart Home IoT Project)** (Mar 2026 – Present): Backend Engineer (IoT Specialist). Express.js backend, EMQX MQTT Broker, PostgreSQL, EMQX Dashboard, APIs for Vue.js Web & Flutter Mobile + AI Token Monitoring.
+- **SentinelOne XDR Security Implementation** (Aug 2025 – Present): Security Engineer. SentinelOne XDR deployment, threat detection, Linux VPS hardening.
+- **Alps Studio** (Jan 2024 – May 2024): Backend Web Developer (Laravel & Express.js REST APIs).
+- **Diskominfo Bone Bolango** (2022 – 2024): Network Technical Support & Server Admin (SILET HAKI 2021).
+- **Dinas Kesehatan Kota Gorontalo** (2022 – 2024): Computer Operator & Internal App Developer.
+- **Universitas Negeri Gorontalo** (2019 – 2023): Computer Lab Assistant (HAKI Patent 2023).
+
+## Contact & Links
+- Website: https://salmanmustapa.my.id
+- Company Website: https://samrifa.com
+- IMT Calculator App: https://antropometri.samrifa.com
+- GitHub: https://github.com/salman-mustapa
+- LinkedIn: https://linkedin.com/in/salman-mustapa
+- Email: id.salmanmustapa@gmail.com
+- Phone/WhatsApp: +62 821-5448-8769
+- Location: Gorontalo, Indonesia

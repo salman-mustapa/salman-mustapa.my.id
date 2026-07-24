@@ -1,0 +1,38 @@
+# Full Profile & Technical Context: Salman Mustapa, S.Kom.
+
+## Executive Summary
+Salman Mustapa, S.Kom. is an Indonesian Backend Engineer, Security Engineer, and Tech Entrepreneur. He serves as Founder & Lead Architect of PT SAMRIFA STUDIO TEKNOLOGI (PT Perorangan - Software Studio, https://samrifa.com) and specializes in building high-throughput backend services, IoT telemetry ingestion pipelines using EMQX MQTT Broker, and enforcing enterprise endpoint protection with SentinelOne XDR.
+
+## Intellectual Property Copyright Patents (HAKI Kemenkumham RI - 50 Years Validity)
+1. **HAKI 2021**: Sistem Informasi Layanan Internet Masyarakat (SILET) Dinas Komunikasi Dan Informatika Kabupaten Bone Bolango (No. Pencatatan: 000269388, 16 Agustus 2021).
+2. **HAKI 2023**: Pengembangan Sistem Informasi Pengelolaan Sarana dan Prasarana Laboratorium Berbasis Android di Fakultas Teknik Universitas Negeri Gorontalo (No. Pencatatan: 000480059, 20 Juni 2023).
+3. **HAKI 2026**: Calculators IMT / Antropometri Android & Web Application (No. Pencatatan: 001297659, 1 Juni 2026, Web Live: https://antropometri.samrifa.com).
+
+## Key Technical Stack
+- **Primary Languages**: JavaScript/TypeScript (Node.js), PHP, Python, Java, SQL, Shell Scripting.
+- **Backend Frameworks**: Express.js, Laravel Framework, RESTful API Design, WebSockets, Microservices Architecture.
+- **IoT & Telemetry**: EMQX MQTT Broker Cluster Management, Mosquitto, MQTT Auth & ACL, TLS/SSL Encrypted MQTT, Telemetry Ingestion, EMQX Dashboard.
+- **Cybersecurity & Systems**: SentinelOne XDR Deployment, Linux Server Hardening (Ubuntu/Debian), UFW Firewall, Threat Detection, Vulnerability Mitigation, Network Security (Mikrotik, Cisco).
+- **Databases**: PostgreSQL, MySQL, Schema Design, Time-Series Sensor Logging, Indexing & Query Optimization.
+- **DevOps & Cloud**: Docker, Linux VPS Administration, Nginx Web Server, SSL Certificates, Git Version Control.
+- **Integrations**: Cross-platform API integration with Vue.js Web Dashboards, Flutter Mobile Apps, and AI Model Token/Telemetry Monitoring.
+
+## Education & Certifications
+- **S1 Sistem Informasi (S.Kom)** — Universitas Negeri Gorontalo (2018 - 2023, GPA 3.43)
+- **Teknik Komputer & Jaringan (TKJ)** — SMK Negeri 4 Kota Gorontalo (2015 - 2018)
+- **Certifications**:
+  - SOLID Programming Principles (Dicoding 2025)
+  - Java Programming Basics (Dicoding 2025)
+  - Operator Komputer Madya (BNSP 2024)
+  - Junior Network Administrator (BNSP 2023)
+  - Fundamental Linux, Mikrotik & Cisco (ID-Networkers 2023)
+
+## Contact Information
+- Personal Domain: https://salmanmustapa.my.id
+- Corporate Studio: https://samrifa.com
+- IMT Calculator App: https://antropometri.samrifa.com
+- Email: id.salmanmustapa@gmail.com
+- WhatsApp: +62 821-5448-8769
+- GitHub: https://github.com/salman-mustapa
+- LinkedIn: https://linkedin.com/in/salman-mustapa
+- Location: Gorontalo, Gorontalo Province, Indonesia
