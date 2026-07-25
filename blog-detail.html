@@ -4,28 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="article-page-title">Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js - Salman Mustapa, S.Kom.</title>
+    <title id="article-page-title">Catatan Teknikal - Salman Mustapa, S.Kom.</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" id="article-meta-desc"
-        content="Studi kasus nyata proyek NetraHome: Arsitektur ingesti telemetri sensor IoT berlatensi <50ms dengan EMQX Broker, otentikasi TLS/SSL, Express.js backend, dan PostgreSQL oleh Salman Mustapa, S.Kom.">
+        content="Dokumentasi dan artikel teknikal backend engineering, IoT telemetry EMQX, SentinelOne XDR security, dan performa database oleh Salman Mustapa, S.Kom.">
     <meta name="keywords"
-        content="IoT Telemetry, EMQX MQTT Broker, Express.js, Node.js, NetraHome, Vue.js, Flutter, Real-Time Sensor, PostgreSQL, Salman Mustapa, Gorontalo">
+        content="Backend Engineering, IoT Telemetry, EMQX MQTT, SentinelOne XDR, Linux VPS Hardening, PostgreSQL Indexing, Express.js, Laravel, Salman Mustapa, Gorontalo">
     <meta name="author" content="Salman Mustapa, S.Kom.">
+    <meta name="robots" content="index, follow">
 
-    <!-- Agentic Browsing & AI Meta -->
-    <meta name="ai-agent" content="Salman Mustapa, S.Kom. Technical Article & Documentation - EMQX MQTT, SentinelOne XDR, & PostgreSQL Performance">
+    <!-- Agentic Browsing & AI Meta Tags (3/3 Score Requirements) -->
+    <meta name="ai-agent" content="Salman Mustapa, S.Kom. - Backend Engineer, Security Engineer (SentinelOne XDR), IoT Telemetry Specialist (EMQX MQTT), Founder of PT SAMRIFA STUDIO TEKNOLOGI (https://samrifa.com)">
+    <meta name="chat-agent" content="https://salmanmustapa.my.id/llms.txt">
     <link rel="alternate" type="text/markdown" title="LLM Summary" href="https://salmanmustapa.my.id/llms.txt">
     <link rel="alternate" type="text/markdown" title="LLM Full Context" href="https://salmanmustapa.my.id/llms-full.txt">
+    <link rel="help" type="text/markdown" href="https://salmanmustapa.my.id/llms.txt">
+    <link rel="author" type="text/markdown" href="https://salmanmustapa.my.id/llms.txt">
+
+    <!-- GEO Meta Tags (Gorontalo, Indonesia) -->
+    <meta name="geo.region" content="ID-GO">
+    <meta name="geo.placename" content="Gorontalo, Indonesia">
+    <meta name="geo.position" content="0.5406;123.0595">
+    <meta name="ICBM" content="0.5406, 123.0595">
 
     <!-- Umami Analytics -->
     <script defer src="https://umami.samrifa.com/script.js" data-website-id="3cfdebc9-2a4f-4a12-880e-67e85629038b"></script>
 
-    <!-- Open Graph -->
-    <meta property="og:title" id="article-og-title" content="Panduan Ingesti Data Sensor Real-Time dengan EMQX MQTT Broker dan Express.js">
-    <meta property="og:description" id="article-og-desc" content="Studi kasus nyata proyek NetraHome: Ingesti data telemetri sensor IoT real-time berlatensi rendah.">
+    <!-- WhatsApp, Telegram, & Social Media Preview Cards (Rich Digital Business Card) -->
+    <meta property="og:site_name" content="Salman Mustapa, S.Kom. | Technical Insights">
+    <meta property="og:title" id="article-og-title" content="Catatan Teknikal - Salman Mustapa, S.Kom.">
+    <meta property="og:description" id="article-og-desc" content="Dokumentasi dan insight teknikal backend engineering & security oleh Salman Mustapa, S.Kom.">
     <meta property="og:image" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
+    <meta property="og:image:secure_url" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="id_ID">
+    <link rel="image_src" href="https://salmanmustapa.my.id/assets/og_image_opt.webp">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catatan Teknikal - Salman Mustapa, S.Kom.">
+    <meta name="twitter:description" content="Dokumentasi dan insight teknikal backend engineering & security oleh Salman Mustapa, S.Kom.">
+    <meta name="twitter:image" content="https://salmanmustapa.my.id/assets/og_image_opt.webp">
 
     <link rel="icon" href="assets/icon_512.webp">
 
@@ -108,18 +131,18 @@
 
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
-    <!-- Header Navigation -->
+    <!-- Simple Header (Matching detail.html alignment) -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-200 dark:border-white/5 bg-white/80 dark:bg-zinc-950/80">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html#blog" class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 transition-colors">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 <span class="text-xs font-bold uppercase tracking-widest">Kembali Ke Artikel</span>
             </a>
-            <div class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Technical <span class="text-emerald-500">Insights</span></div>
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-zinc-400">Technical <span class="text-emerald-500">Insights</span></div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-12">
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-24 space-y-12">
         <!-- Article Header Container -->
         <div class="space-y-6 pb-8 border-b border-zinc-200 dark:border-white/10">
             <div class="flex flex-wrap items-center gap-3">
@@ -142,102 +165,8 @@
             </div>
         </div>
 
-        <!-- Article Content Body (HTML Static Fallback) -->
+        <!-- Article Content Body Container -->
         <article id="article-body" class="article-content text-zinc-700 dark:text-zinc-300 text-base">
-            <p>Dalam ekosistem <em>Smart Home</em> dan aplikasi IoT (<em>Internet of Things</em>) modern, tantangan terbesar seorang <strong>Backend Engineer</strong> bukanlah sekadar menyimpan data ke dalam database, melainkan <strong>bagaimana merancang arsitektur ingesti telemetri sensor real-time yang mampu menangani ribuan paket sinyal simultan dengan latensi sub-50ms tanpa ada data loss (zero packet loss)</strong>.</p>
-
-            <p>Pengalaman teknikal ini saya dapatkan secara langsung dalam merancang dan membangun infrastruktur backend proyek <strong>NetraHome</strong> (Maret 2026 – Sekarang). Pada ekosistem NetraHome, perangkat pengguna mengirimkan sinyal telemetri sensor (seperti suhu ruangan, kelembaban, status sakelar pintar, pengawasan konsumsi daya listrik, hingga kuota pemakaian AI token) secara kontinu setiap detik.</p>
-
-            <p>Untuk memproses arus data telemetri yang intensif ini tanpa membebani server backend, kami mengintegrasikan <strong>EMQX MQTT Broker</strong> bersama service backend <strong>Express.js (Node.js)</strong>.</p>
-
-            <h2>1. Mengapa Menggunakan Protokol MQTT & EMQX Broker?</h2>
-            <p>Dibandingkan komunikasi HTTP REST API biasa yang memerlukan <em>overhead header</em> 1KB+ per paket serta teknik <em>polling</em> yang boros daya dan memicu latensi tinggi, protokol <strong>MQTT (Message Queuing Telemetry Transport)</strong> beroperasi menggunakan model <em>Publish/Subscribe</em> yang sangat efisien dengan ukuran header hanya <strong>2 Byte</strong>.</p>
-
-            <p>Di antara berbagai pilihan broker MQTT (seperti Mosquitto atau VernEMQ), kami memilih <strong>EMQX Broker</strong> untuk proyek NetraHome karena beberapa alasan kunci:</p>
-            <ul>
-                <li><strong>Skalabilitas High Concurrency:</strong> Berjalan di atas arsitektur Erlang/OTP yang mampu menangani hingga jutaan koneksi MQTT bersamaan secara efisien.</li>
-                <li><strong>Native Rule Engine:</strong> Memungkinkan payload pesan MQTT diteruskan langsung ke PostgreSQL database atau HTTP REST Webhook tanpa perlu menulis kode <em>middleman</em> yang kompleks.</li>
-                <li><strong>Keamanan Tingkat Tinggi (MQTTS & ACL):</strong> Mendukung otentikasi TLS/SSL pada Port 8883, verifikasi sertifikat, serta otentikasi token JWT / database untuk mengatur hak akses (<em>Access Control List</em>) per <em>Client ID</em> sensor.</li>
-            </ul>
-
-            <h2>2. Arsitektur Komunikasi Real-Time NetraHome</h2>
-            <p>Arsitektur aliran data telemetri NetraHome dirancang secara bertingkat untuk menjamin kecepatan balasan sub-50ms dari sensor hingga layar aplikasi pengguna:</p>
-
-            <div class="my-6 p-5 rounded-xl bg-zinc-900 text-emerald-400 font-mono text-xs leading-relaxed overflow-x-auto border border-zinc-800">
-                [Perangkat Sensor NetraHome Users] <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ (MQTTS Port 8883 - Enkripsi TLS/SSL & JWT Token)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                [EMQX Broker Cluster Engine] ──(Rule Engine Webhook)──► [Express.js Backend Service]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                [WebSockets Gateway Engine] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PostgreSQL Time-Series DB]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─► Dashboard Web Monitoring (Vue.js)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─► Aplikasi Mobile User (Flutter)
-            </div>
-
-            <h2>3. Implementasi Kode Subscriber pada Express.js (Node.js)</h2>
-            <p>Berikut adalah contoh implementasi skrip backend Node.js (Express.js) yang terhubung ke EMQX Broker untuk menerima, memverifikasi, dan mencatat data telemetri sensor ke database:</p>
-
-            <pre class="p-4 rounded-xl bg-zinc-900 text-zinc-100 overflow-x-auto my-4 border border-zinc-800"><code>const mqtt = require('mqtt');
-const { Pool } = require('pg');
-
-// Konfigurasi Database PostgreSQL
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
-});
-
-// Koneksi Aman MQTTS ke EMQX Broker
-const client = mqtt.connect('mqtts://broker.samrifa.com:8883', {
-    clientId: 'netrahome_backend_service',
-    username: process.env.MQTT_USER,
-    password: process.env.MQTT_PASSWORD,
-    rejectUnauthorized: true
-});
-
-client.on('connect', () => {
-    console.log('✅ Terhubung secara aman ke EMQX Broker NetraHome');
-    // Subscribe ke seluruh topik telemetri sensor pengguna (QoS 1)
-    client.subscribe('netrahome/devices/+/telemetry', { qos: 1 });
-});
-
-client.on('message', async (topic, payload) => {
-    try {
-        const deviceId = topic.split('/')[2];
-        const data = JSON.parse(payload.toString());
-
-        // Ingesti data telemetri ke PostgreSQL
-        const query = `
-            INSERT INTO device_telemetry_logs (device_id, temperature, humidity, power_watts, ai_tokens, recorded_at)
-            VALUES ($1, $2, $3, $4, $5, NOW())
-        `;
-        await pool.query(query, [deviceId, data.temp, data.hum, data.power, data.tokens]);
-
-        // Broadcast data real-time via WebSockets ke Vue.js & Flutter
-        io.to('device_' + deviceId).emit('telemetry_update', data);
-
-    } catch (err) {
-        console.error('❌ Gagal memproses payload telemetri MQTT:', err);
-    }
-});</code></pre>
-
-            <h2>4. Integrasi Multi-Platform (Vue.js Web & Flutter Mobile)</h2>
-            <p>Data telemetri yang ditangkap oleh backend Express.js selanjutnya diteruskan secara otomatis via <strong>WebSockets Gateway</strong>:</p>
-            <ul>
-                <li><strong>Dashboard Web (Vue.js):</strong> Menampilkan grafik tren suhu, kelembaban, dan konsumsi daya secara real-time menggunakan ECharts / Chart.js tanpa perlu melakukan refresh halaman.</li>
-                <li><strong>Aplikasi Mobile (Flutter):</strong> Menerima push notifikasi instan jika sensor mendeteksi anomali suhu atau kelebihan batas konsumsi daya listrik.</li>
-            </ul>
-
-            <h2>5. Benchmark Latensi & Kesimpulan</h2>
-            <p>Dengan mengkombinasikan keunggulan <strong>EMQX Broker</strong>, <strong>Express.js</strong>, dan database <strong>PostgreSQL</strong>, pengujian beban (<em>stress testing</em>) pada proyek NetraHome menunjukkan hasil yang sangat memuaskan:</p>
-            <ul>
-                <li><strong>Throughput:</strong> Berhasil memproses lebih dari <strong>5.000 payload telemetri per detik</strong>.</li>
-                <li><strong>Rata-Rata Response Time:</strong> Terjaga di angka <strong>38 ms – 45 ms</strong>.</li>
-                <li><strong>Penggunaan Resource Server:</strong> Beban CPU VPS tetap efisien di bawah 15%.</li>
-            </ul>
-
-            <p>Arsitektur ini membuktikan bahwa penggabungan protokol MQTT yang tepat bersama backend Node.js dan enkripsi TLS mampu menghasilkan sistem telemetri IoT kelas industri yang cepat, aman, dan sangat stabil.</p>
         </article>
 
         <!-- Author Bio Box Footer -->
@@ -337,13 +266,17 @@ client.on('message', async (topic, payload) => {
         </div>
     </a>
 
-    <!-- Core Scripts -->
+    <!-- Core Dependencies -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Database of Real-Life Comprehensive Articles
-        const articlesDatabase = {
+        /**
+         * Secure Strict Whitelist Articles Repository (100% Whitelisted Keys Only)
+         * Prevent DOM XSS, Prototype Pollution, & Arbitrary Injection
+         */
+        const SECURE_ARTICLES_REPOSITORY = Object.freeze({
             'emqx-express-iot': {
+                id: 'emqx-express-iot',
                 badge: 'IoT Telemetry & Backend',
                 date: 'Maret 2026',
                 readtime: '8 Menit Baca',
@@ -414,10 +347,7 @@ client.on('message', async (topic, payload) => {
         const data = JSON.parse(payload.toString());
 
         // Ingesti data telemetri ke PostgreSQL
-        const query = `
-            INSERT INTO device_telemetry_logs (device_id, temperature, humidity, power_watts, ai_tokens, recorded_at)
-            VALUES ($1, $2, $3, $4, $5, NOW())
-        `;
+        const query = "INSERT INTO device_telemetry_logs (device_id, temperature, humidity, power_watts, ai_tokens, recorded_at) VALUES ($1, $2, $3, $4, $5, NOW())";
         await pool.query(query, [deviceId, data.temp, data.hum, data.power, data.tokens]);
 
         // Broadcast data real-time via WebSockets ke Vue.js & Flutter
@@ -447,6 +377,7 @@ client.on('message', async (topic, payload) => {
                 `
             },
             'sentinelone-xdr-vps-hardening': {
+                id: 'sentinelone-xdr-vps-hardening',
                 badge: 'Cybersecurity & Security Engineering',
                 date: 'Agustus 2025',
                 readtime: '10 Menit Baca',
@@ -534,7 +465,7 @@ sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
                     <p>Setelah SentinelOne XDR terpasang, sistem memiliki 3 kemampuan proteksi otomatis kelas militer:</p>
                     
                     <ul>
-                        <li><strong>Automated Detection & Behavioral AI:</strong> Jika ada skrip berbahaya yang mencoba mengeksekusi <em>reverse shell</em> di folder sementara (seperti `/tmp` atau `/var/tmp`), SentinelOne AI langsung mendeteksinya sebagai ancaman tinggi.</li>
+                        <li><strong>Automated Detection & Behavioral AI:</strong> Jika ada skrip berbahaya yang mencoba mengeksekusi <em>reverse shell</em> di folder sementara (seperti <code>/tmp</code> atau <code>/var/tmp</code>), SentinelOne AI langsung mendeteksinya sebagai ancaman tinggi.</li>
                         <li><strong>Automated Network Isolation:</strong> SentinelOne secara instan mengisolasi IP server yang terinfeksi dari jaringan publik agar malware tidak menyebar ke server database lainnya, namun koneksi agen administrator tetap terjaga.</li>
                         <li><strong>Automated Rollback to Clean State:</strong> SentinelOne menyimpan <em>Shadow Snapshots</em> kernel. Jika ada file yang dirusak atau dienkripsi oleh ransomware, admin dapat menekan tombol <strong>Rollback</strong> di console untuk mengembalikan file sistem ke kondisi bersih sebelum serangan dalam hitungan detik.</li>
                     </ul>
@@ -549,11 +480,12 @@ sudo /opt/sentinelone/bin/sentinelctl status</code></pre>
                 `
             },
             'express-laravel-postgresql-performance': {
+                id: 'express-laravel-postgresql-performance',
                 badge: 'Backend Engineering & Database',
                 date: 'Januari 2025',
                 readtime: '8 Menit Baca',
                 title: 'Desain RESTful API Modular Berperforma Tinggi dengan PostgreSQL & Indexing',
-                metaDesc: 'Teknik optimasi query SQL dan arsitektur backend Express.js & PHP Laravel: Menerapkan prinsip SOLID, Clean Code MVC, serta teknik B-Tree Composite Indexing untuk response time sub-100ms.',
+                metaDesc: 'Teknik optimasi query SQL dan arsitektur backend Express.js & PHP Laravel: Menerapkan prinsip SOLID, Clean Code MVC, serta teknik B-Tree Composite Indexing untuk response time sub-100ms oleh Backend Engineer Salman Mustapa, S.Kom.',
                 content: `
                     <p>Ketika basis data aplikasi bertumbuh dari ribuan menjadi jutaan baris data, query SQL yang tidak ter-indeks dengan baik akan menyebabkan kemacetan (<em>bottleneck</em>) sistem. Response time API yang mulanya 50ms bisa membengkak menjadi 3 hingga 5 detik.</p>
 
@@ -592,75 +524,121 @@ ON device_telemetry_logs (device_id, created_at DESC);</code></pre>
                     <p>Pengarsitekturan kode backend yang modular serta pemahaman mendalam tentang struktur indeks database PostgreSQL/MySQL adalah kunci utama dalam membangun produk digital skala besar yang andal dan cepat.</p>
                 `
             }
-        };
+        });
 
-        // Universal Robust Article Renderer
-        function renderArticleFromURL() {
+        /**
+         * Secure Router Parser
+         * Pure Vanilla ES6, 100% Whitelist and Safe from XSS & Prototype Injection
+         */
+        function getValidatedArticleKey() {
             try {
-                let rawId = '';
-                const searchStr = window.location.search;
-                if (searchStr && searchStr.includes('id=')) {
-                    const match = searchStr.match(/[?&]id=([^&]+)/);
-                    if (match && match[1]) {
-                        rawId = decodeURIComponent(match[1]).trim();
+                // Parse Query Parameter cleanly from URL using pure location object
+                var queryStr = window.location.search || '';
+                var targetId = '';
+
+                // Extract value of '?id=' or '&id=' using regex
+                var match = queryStr.match(/[?&]id=([a-zA-Z0-9\-_]+)/);
+                if (match && match[1]) {
+                    targetId = match[1].toLowerCase().trim();
+                }
+
+                // If query parameter is empty, try extracting from full href (failsafe for local file protocol)
+                if (!targetId) {
+                    var fullHref = window.location.href || '';
+                    var matchHref = fullHref.match(/[?&]id=([a-zA-Z0-9\-_]+)/);
+                    if (matchHref && matchHref[1]) {
+                        targetId = matchHref[1].toLowerCase().trim();
                     }
                 }
 
-                if (!rawId || !articlesDatabase[rawId]) {
-                    rawId = 'emqx-express-iot';
+                // Strict validation against frozen Whitelist keys
+                if (targetId && Object.prototype.hasOwnProperty.call(SECURE_ARTICLES_REPOSITORY, targetId)) {
+                    return targetId;
                 }
+            } catch (e) {
+                console.error("Routing extraction error:", e);
+            }
+            return 'emqx-express-iot'; // Safe default fallback
+        }
 
-                const article = articlesDatabase[rawId];
+        /**
+         * Vanilla DOM Hydrator
+         * Zero jQuery dependencies, immune to script failures
+         */
+        function hydrateArticle() {
+            try {
+                var key = getValidatedArticleKey();
+                var article = SECURE_ARTICLES_REPOSITORY[key];
+                if (!article) return;
 
-                if (article) {
-                    document.title = `${article.title} - Salman Mustapa, S.Kom.`;
-                    
-                    const pageTitleEl = document.getElementById('article-page-title');
-                    const metaDescEl = document.getElementById('article-meta-desc');
-                    const ogTitleEl = document.getElementById('article-og-title');
-                    const ogDescEl = document.getElementById('article-og-desc');
+                // Safe textContent assignments to block any XSS payload execution
+                document.title = article.title + ' - Salman Mustapa, S.Kom.';
+                
+                var titlePageMeta = document.getElementById('article-page-title');
+                var descMeta = document.getElementById('article-meta-desc');
+                var ogTitle = document.getElementById('article-og-title');
+                var ogDesc = document.getElementById('article-og-desc');
 
-                    if (pageTitleEl) pageTitleEl.textContent = `${article.title} - Salman Mustapa, S.Kom.`;
-                    if (metaDescEl) metaDescEl.setAttribute('content', article.metaDesc);
-                    if (ogTitleEl) ogTitleEl.setAttribute('content', article.title);
-                    if (ogDescEl) ogDescEl.setAttribute('content', article.metaDesc);
+                if (titlePageMeta) titlePageMeta.textContent = article.title + ' - Salman Mustapa, S.Kom.';
+                if (descMeta) descMeta.setAttribute('content', article.metaDesc);
+                if (ogTitle) ogTitle.setAttribute('content', article.title);
+                if (ogDesc) ogDesc.setAttribute('content', article.metaDesc);
 
-                    const badgeEl = document.getElementById('article-badge');
-                    const dateEl = document.getElementById('article-date');
-                    const readtimeEl = document.getElementById('article-readtime');
-                    const titleEl = document.getElementById('article-title');
-                    const bodyEl = document.getElementById('article-body');
+                var badgeEl = document.getElementById('article-badge');
+                var dateEl = document.getElementById('article-date');
+                var readtimeEl = document.getElementById('article-readtime');
+                var titleEl = document.getElementById('article-title');
+                var bodyEl = document.getElementById('article-body');
 
-                    if (badgeEl) badgeEl.textContent = article.badge;
-                    if (dateEl) dateEl.textContent = article.date;
-                    if (readtimeEl) readtimeEl.textContent = article.readtime;
-                    if (titleEl) titleEl.textContent = article.title;
-                    if (bodyEl) bodyEl.innerHTML = article.content;
-                }
+                if (badgeEl) badgeEl.textContent = article.badge;
+                if (dateEl) dateEl.textContent = article.date;
+                if (readtimeEl) readtimeEl.textContent = article.readtime;
+                if (titleEl) titleEl.textContent = article.title;
+                
+                // Safe content assignment from strict internal whitelist object only
+                if (bodyEl) bodyEl.innerHTML = article.content;
+
             } catch (err) {
-                console.error('Error rendering article:', err);
+                console.error("Hydration error:", err);
             }
         }
 
-        // Execute INSTANTLY
-        renderArticleFromURL();
+        // Run Hydration at earliest possible point
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', hydrateArticle);
+        } else {
+            hydrateArticle();
+        }
 
-        // Bind events
-        document.addEventListener('DOMContentLoaded', renderArticleFromURL);
-        window.addEventListener('load', renderArticleFromURL);
-
-        $(document).ready(function () {
-            // Theme check
+        // Event hooks for fail-safe rendering
+        window.addEventListener('load', hydrateArticle);
+        
+        // jQuery fallback fallback (if loaded successfully)
+        try {
+            $(document).ready(function () {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'dark') {
+                    $('html').addClass('dark');
+                } else {
+                    $('html').removeClass('dark');
+                }
+                hydrateArticle();
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            });
+        } catch (e) {
+            // Theme toggle fallback if jQuery is unavailable/offline
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'dark') {
-                $('html').addClass('dark');
+                document.documentElement.classList.add('dark');
             } else {
-                $('html').removeClass('dark');
+                document.documentElement.classList.remove('dark');
             }
-
-            renderArticleFromURL();
-            lucide.createIcons();
-        });
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
     </script>
 </body>
 
